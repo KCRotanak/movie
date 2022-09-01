@@ -1,0 +1,233 @@
+
+.carousel .coming {
+  width: 100%;
+  height: 60%;
+  /* background-color: #554238; */
+  
+}
+.coming .btn-coming {
+  width: 100%;
+  /* background-color:#393939; */
+  height: 8%;
+  padding-top: 35px;
+  padding-left: 30px;
+  font-family: "Coda", cursive;
+  /* margin-left: 30px; */
+}
+.coming .btn-coming a {
+  color: white;
+  border-radius: 5px;
+  padding: 5px 20px 5px 20px;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+  margin-left: 10px;
+  background-color: #515151;
+}
+.coming .btn-coming a:hover {
+  color: black;
+  background-color: rgb(0, 130, 125);
+}
+.card-coming{
+  width: 100%;
+  padding: 40px 0;
+  height: 92%;
+  background-color: #393939;
+  
+}
+.card-coming .slide-content{
+  height: 46%;
+  margin: 0 40px;
+  overflow: hidden;
+  margin-top: 17px;
+  
+  
+
+}
+.card:hover {
+  -webkit-transform: scale(1);
+  transform: scale(0.92);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-wrapper {
+  display: flex;
+  
+}
+.card{
+  width: 25%;
+  height:50%;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  
+  /* background-color: #FFF; */
+
+}
+
+.swiper-slide {
+ 
+  /* background-color: red; */
+
+}
+
+.image-content{
+  width: 100%;
+  height: 80%;
+  position: relative;
+  row-gap: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* padding: 25px 0;  */
+}
+.card-image{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: rgb(137, 137, 137);
+  margin-bottom: 20px;
+  
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  /* object-fit: cover; */
+}
+.card-content {
+  width: 100%;
+  height: 20%;
+  color: white;
+  
+  /* background-color: #40a3f4; */
+ 
+}
+
+
+
+.card-coming .swiper-navBtn{
+  color: white;
+  transition: color 0.3s ease;
+}
+.card-coming .swiper-navBtn:hover{
+  color: grey;
+}
+.card-coming .swiper-navBtn::before,
+.card-coming .swiper-navBtn::after{
+  font-size: 35px;
+}
+.card-coming .swiper-button-next{
+  /* color: black; */
+  right: 0;
+}
+.card-coming .swiper-button-prev{
+  /* color: black; */
+  left: 0;
+}
+.card-coming .swiper-pagination-bullet{
+  background-color: grey;
+  opacity: 1;
+}
+.card-coming .swiper-pagination-bullet-active{
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .card-coming .slide-content{
+    margin: 0 10px;
+  }
+  .card-coming .swiper-navBtn{
+    display: none;
+  }
+}
+/* .card-coming {
+    width: 100%;
+    background-color: #393939;
+    height: 92%;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    display: flex;   
+}
+
+.card-coming .card1:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-coming .card1 {
+    width: 20%;
+    height: 50%;
+    background-color: #393939;
+    transition: 0.3s ease-in-out;
+    padding-bottom: 5px;
+    margin-right: 60px;
+
+   
+}
+
+.card-coming .card1 img{
+    width: 100%;
+    height: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-coming p,
+.card-coming h4, 
+.card-coming h5 {
+    color: white;
+    text-align: left;
+} */
+
+#fade {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+  }
+  
+  #light {
+    display: none;
+    position:fixed;
+    background-color: white;
+    top: 25%;
+    left: 25%;
+    max-width: 1500px;
+    margin-bottom: 400px;
+    max-height: 500px;
+  
+    z-index: 1002;
+    overflow: visible;
+  }
+
+  
+  #boxclose {
+    /* float:right; */
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 3px;
+    background: #222222;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    z-index: 1002;
+    opacity: 0.9;
+  }
+  
+  .boxclose:before {
+    content: "×";
+  }
+  
+  #fade:hover ~ #boxclose {
+    display:none;
+  }
