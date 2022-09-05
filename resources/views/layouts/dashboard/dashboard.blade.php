@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Phoenix Admin </title>
+    <link rel="icon" href="{{ asset('img/onlylogo.png') }}" type="image/png" />
 
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
@@ -36,7 +37,7 @@
             max-width: 150px;
         }
     </style>
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
+    {{-- <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}"> --}}
     <style>
         .form-control::placeholder {
             color: rgb(181, 181, 181);

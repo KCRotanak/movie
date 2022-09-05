@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"content="IE=edge">
     <title>tickets_home</title>
+    <link rel="icon" href="{{ asset('img/onlylogo.png') }}" type="image/png" />
     <meta name="description" content="">
     <meta name="viewport" content="width-device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -44,7 +45,6 @@
             </div>
 
 
-
             <div class="bar-top-right ">
                 @guest
                     @if (Route::has('login'))
@@ -53,15 +53,16 @@
                     @if (Route::has('register'))
                         <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
                     @endif
+
                 @else    
+
                     <div class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img src="/profile/avatar/{{ Auth::user()->avatar }}" alt="author-image"
-                                class="img-xs rounded-circler" style="border-radius: 50%;width: 30px;height: 30px">
-                            <span class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}
+                                class="img-xs rounded-circler" style="border-radius: 50%; width: 35px; height: 35px">&ensp;
+                            <span class="mb-0 d-sm-block navbar-profile-name">{{ auth()->user()->name }}
                             </span>
-                            <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                             aria-labelledby="profileDropdown">
