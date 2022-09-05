@@ -74,18 +74,19 @@ header .header-top .bar-top-right {
 
     .bar-top-right .dropdown {
         
-        padding-top: 10px;
+      padding: 20px 0px 0px 50px;
     }
     #navbarDropdown {
 
     }
     .bar-top-right .nav-link {
         /* background-color: #515151; */
-        border-radius: 5px;
-        padding: 10px 15px 10px 15px;       
+        /* border-radius: 5px;      
+        position:fixed; 
+        margin-left: 30px; */
+        /* margin: 0px 15px 20px 15px; */
         font-size: 18px;
-        position:fixed;
-        margin-left: 30px;
+        position: relative;
 
     }
 
@@ -111,7 +112,7 @@ header .header-top .bar-top-right {
     }
     .bar-top-right .dropdown-item:hover
     {
-        background-color: white;
+        background-color: #d3b74b;
         border-radius: 5px;
         color: black;
         font-size: 18px;

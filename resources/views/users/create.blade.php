@@ -1,4 +1,4 @@
-@extends('users.userlayout')
+@extends('layouts.dashboard.dashboard')
 @section('content')
     <div class="card card-primary" style="margin: 100px 400px; display: fixed">
         <div class="card-header">

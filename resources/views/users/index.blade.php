@@ -1,5 +1,4 @@
-@extends('users.userlayout')
-
+@extends('layouts.dashboard.dashboard')
 @section('content')
 <div class="col-lg-12 margin-tb">
     <div class="pull-left">
