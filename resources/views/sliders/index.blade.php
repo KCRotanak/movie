@@ -1,39 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel 9 Drag and Drop File Upload with Dropzone JS - codecheef.org</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-</head>
-<body>
-    
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Laravel 9 Drag and Drop File Upload with Dropzone JS - codecheef.org</h1>
-    
-            <form action="{{ route('sliders.store') }}" method="post" enctype="multipart/form-data" id="image-upload" class="dropzone">
-                @csrf
-                <div>
-                    <h4>Upload Multiple Image By Click On Box</h4>
-                </div>
-            </form>
-        </div>
-    </div>
+@extends('layouts.dashboard.dashboard')
+@section('content')
+<a href="{{route('slides.create')}}">Add New Slide</a>
+
+
+<div style="margin-top:30px;">
+
+@foreach($sliders as $slider)
+
+    <img src="{{url('images')}}/{{$slider->photo}}" alt="{{$slider->title}}" width="250" height="150">
+
+<a href="{{ route('slides.edit', $slider->id) }}" class="btn btn-block btn-info">Edit</a>
+
+
+{!! Form::open(['method' => 'DELETE', 'route' => ['slides.destroy', $slider->id] ]) !!}
+  <button class="btn btn-block btn-danger" type="submit">Delete</button>
+{!! Form::close() !!}
+
+<br>
+
+@endforeach
 </div>
-    
-<script type="text/javascript">
-  
-        Dropzone.autoDiscover = false;
-  
-        var dropzone = new Dropzone('#image-upload', {
-              thumbnailWidth: 200,
-              maxFilesize: 1,
-              acceptedFiles: ".jpeg,.jpg,.png,.gif"
-            });
-  
-</script>
-    
-</body>
-</html>
+@endsection

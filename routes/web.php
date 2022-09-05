@@ -71,13 +71,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('seats', SeatController::class);
     Route::resource('theaters', TheaterController::class);
     Route::resource('contacts',ContactController::class);
-    Route::controller(SliderController::class)->group(function(){
-        Route::get('sliders', 'index');
-        Route::post('sliders/store', 'store')->name('sliders.store');
-    });
-    Route::get('/index', function(){
-     return view('/backend/index');
-    });
+    Route::resource('sliders', SliderController::class);
+
 });
  Route::resource('users', UserController::class);
   

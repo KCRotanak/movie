@@ -53,51 +53,45 @@
                     @if (Route::has('register'))
                         <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
                     @endif
-                    ​​ ​​​ ​​​
-                @else
-                    <ul>
-                        <ul>
-                            <div class="nav-item dropdown">​​​​
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        style="margin-top:-30px;" data-bs-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false" v-pre>
-                                        <img src="/profile/avatar/{{ Auth::user()->avatar }}" alt="author-image"
-                                            class="img-xs rounded-circler"
-                                            style="border-radius: 50%;width: 30px;height: 30px;">
-                                        <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}
-                                        </p>
-                                        <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                        aria-labelledby="profileDropdown">
-                                        <a class="dropdown-item" href="/editprofile">
-                                            {{ 'Edit account' }}
-                                        </a><br>
-                                        <a class="dropdown-item" href="/admin/home">
-                                            {{ auth()->user()->name }}
-                                        </a><br>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                            {{ 'Logout' }}
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
+                @else    
+                    <div class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img src="/profile/avatar/{{ Auth::user()->avatar }}" alt="author-image"
+                                class="img-xs rounded-circler" style="border-radius: 50%;width: 30px;height: 30px">
+                            <span class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}
+                            </span>
+                            <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                            aria-labelledby="profileDropdown">
+                           
+                            <li>
+                                <a class="dropdown-item" href="/editprofile">
+                                    {{ 'Edit account' }}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/admin/home">
+                                    {{ auth()->user()->name }}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                    {{ 'Logout' }}
+                                </a>
+                            </li>
+                           
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </ul>
-                </div>
+                    </div>
+
+                @endguest
             </div>
-            </ul>
-        @endguest
-        </div>
-        {{-- <a href="{{ route('login') }}"><button>Sign In/Out</button></a>
-                <a href="{{ route('register') }}"><button class="register">Register</button></a> --}}
-
-
         </div>
         <div class="header-bottom">
             <a href="{{ asset('/') }}">Home</a>

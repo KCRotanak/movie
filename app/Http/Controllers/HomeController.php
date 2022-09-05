@@ -28,9 +28,6 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all();
-        // $newproducts = Product::select()
-        // ->where('id', '>=', 5)
-        // ->get();
         return view('frontend.homepage', compact('products'));     
     } 
   
