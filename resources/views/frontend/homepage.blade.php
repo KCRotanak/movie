@@ -110,44 +110,6 @@
     </div>
            
 
-    {{-- <div class="slide-content">
-                <div class="slider-wrapper">
-                    <div class="cardbox1 swiper-slide" onclick="window.location.href='/moviedetail'"
-                        style="cursor: pointer">
-                        <div class="image-content">
-                            <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                        </div>
-                        <div class="card-content">
-                            <p>25-July-2022</p>
-                            <h4>Godzilla</h4>
-                            <h5>120 minutes</h5>
-                        </div>
-                    </div>
-                    <div class="cardbox1 swiper-slide" onclick="window.location.href='/moviedetail'"
-                        style="cursor: pointer">
-                        <div class="image-content">
-                            <img src="{{ asset('/img/godzilla.jpg') }}" alt="">
-                        </div>
-                        <div class="card-content">
-                            <p>25-July-2022</p>
-                            <h4>Godzilla</h4>
-                            <h5>120 minutes</h5>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-
-            </div> --}}
-    {{-- <div class="about-us">
-
-            </div> --}}
-
-
-
-
     <!-- /.carousel -->
     <script>
         $(document).ready(function(event) {

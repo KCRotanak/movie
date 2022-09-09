@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"content="IE=edge">
-    <title>tickets_home</title>
+    <title>Phoenix Cinema</title>
     <link rel="icon" href="{{ asset('img/onlylogo.png') }}" type="image/png" />
     <meta name="description" content="">
     <meta name="viewport" content="width-device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/showtime.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/seat.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/edit_profile.css') }} ">
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -29,9 +30,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
-
+    <script scr=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script scr=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
+    <script scr=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     {{-- link icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
     <style>
         @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
     </style>
@@ -41,7 +45,7 @@
     <header>
         <div class="header-top">
             <div class="bar-top-left">
-                <img src="../img/logo.png"alt="logo"style="cursor: pointer" onclick="window.location.href='/'">
+                <img src="../img/logo.png"alt="logo" style="cursor: pointer" onclick="window.location.href='/'">
             </div>
 
 
@@ -59,9 +63,9 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img src="/profile/avatar/{{ Auth::user()->avatar }}" alt="author-image"
                                 class="img-xs rounded-circler" style="border-radius: 50%; width: 35px; height: 35px">&ensp;
-                            <span class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}
+                            <span class="mb-0 d-sm-block navbar-profile-name">{{ auth()->user()->name }}
                             </span>
-                            <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                            {{-- <i class="mdi mdi-menu-down d-none d-sm-block"></i> --}}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                             aria-labelledby="profileDropdown">
@@ -97,7 +101,7 @@
             <a href="{{ asset('/') }}">Home</a>
             <a href="{{ asset('/showtime') }}">Showtime</a>
             <a href="{{ asset('/comingsoon') }}">Coming Soon</a>
-            <a href="/contact">Contact Us</a>
+            <a href="{{ asset('/contact') }}">Contact Us</a>
         </div>
 
         {{-- bootstrap of logo --}}
@@ -131,22 +135,19 @@
                 <h3>Connect with Us</h3>
                 <h4>011-575-065</h4>
                 <div class="icon-social">
-                    <img src="../img/facebook_icon.png" style="width:30px; height:30px; cursor: pointer"
+                    <img src="../img/facebook_icon.png" style="cursor: pointer"
                         onclick="window.location.href='https://www.facebook.com/kong.rotanak.7/'">
-                    <img src="../img/telegram_icon.png" style="width:30px; height:30px; cursor: pointer"
+                    <img src="../img/telegram_icon.png" style="cursor: pointer"
                         onclick="window.location.href='https://web.telegram.org/z/#467814096'">
-                    <img src="../img/gmail_icon.png" style="width:30px; height:30px; cursor: pointer"
+                    <img src="../img/gmail_icon.png" style="cursor: pointer"
                         onclick="window.location.href='https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMVlCTvxqTrbzWjQtKtvKwCZVHlfMBhgPbbSmcsXDhrgxZsVgsPpxmCfldhpRQQjQNkkJNz'">
                 </div>
             </div>
         </div>
         <div class="bottom-footer">
             <p>Copyright &copy; 2022. Alright reserved.</p>
-
-            <a href="/policy">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <a href="/term">Terms of Conditions</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+            <a href="/policy">Privacy Policy</a>
+            <a href="/term">Terms of Conditions</a>
             <a href="/cookie">Cookie Preferences</a>
         </div>
     </footer>
