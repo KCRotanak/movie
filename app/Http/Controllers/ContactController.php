@@ -14,8 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts=Contact::get();
-        return view ('contacts.index', compact('contacts'));
+        $contacts=Contact::paginate(6);
+        return view ('contacts.index', compact('contacts'))->with('i', (request()->input('page', 1) - 1) * 6);
     }
 
     /*
@@ -79,8 +79,11 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
-        //
+        $contact ->delete();
+     
+        return redirect()->route('contacts.index')
+                        ->with('success','messege deleted successfully');
     }
 }

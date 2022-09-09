@@ -3,12 +3,12 @@
 @section('content')
 <head>
     <style>
-    body {
-      background-color: #393939;
-    }
-    .card{
-        background-color: rgb(200, 200, 200);
-    }
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
+body{
+  marign: 0px;
+  padding: 0px;
+  background-color: #2A2A29;
+}
     </style>
     </head>
     <div class="container-fluid">
@@ -90,3 +90,4 @@
     </div>
 
 @endsection
+

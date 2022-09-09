@@ -7,16 +7,17 @@ use App\Http\Controllers\SoonfrontController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SeatController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SoonController;
 use App\Http\Controllers\TheaterController;
-use App\Http\Controllers\TestingController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Product;
+use App\Http\Controllers\SlideController;
+use App\Models\Slide;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,7 @@ use App\Models\Product;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
-// Route::get('/showtime', [HomeController::class, 'index']);
+Route::get('/booking', [BookingController::class, 'index']);
 Route::get('/comingsoon', [SoonfrontController::class, 'index']);
 Route::get('/showtime', [ShowtimeController::class, 'index']);
 // Route::get('/showtime', function(){
@@ -46,6 +47,9 @@ Route::get('/editprofile', [ProfileController::class, 'edit_profile'])->name('ed
 Route::put('/editprofile', [ProfileController::class, 'update_profile'])->name('update_profile');
 Route::get('/editpassword', [ProfileController::class, 'changePassword'])->name('change-password');
 Route::post('/editpassword', [ProfileController::class, 'updatePassword'])->name('update-password');
+
+// slider 
+
 
 
 Auth::routes();
@@ -70,11 +74,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('soons', SoonController::class);
     Route::resource('seats', SeatController::class);
     Route::resource('theaters', TheaterController::class);
-    Route::resource('contacts',ContactController::class);
-    Route::resource('sliders', SliderController::class);
-
+    Route::resource('contacts',ContactController::class); 
+    Route::resource('users', UserController::class);
+    Route::resource('sliders',SlideController::class);
 });
- Route::resource('users', UserController::class);
+
   
 /*------------------------------------------
 --------------------------------------------
@@ -85,5 +89,4 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
   
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
 });
-
 Route::resource('testing', TestingController::class);

@@ -5,6 +5,8 @@ use App\Models\Product;
 use App\Models\Soon;
 use App\Models\Theater;
 use App\Models\User;
+use App\Models\Contact;
+use App\Models\Slide;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
   
@@ -28,7 +30,10 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('frontend.homepage', compact('products'));     
+        $slides = Slide::all();
+
+        // dd($slides);
+        return view('frontend.homepage', compact('products', 'slides'));     
     } 
   
     /**
@@ -42,7 +47,8 @@ class HomeController extends Controller
         $soon = Soon::get()->count();
         $theater = Theater::get()->count();
         $user = User::get()->count();
-        return view('adminHome',compact('product','soon','theater','user'));
+        $contact = Contact::get()->count();
+        return view('adminHome',compact('product','soon','theater','user','contact'));
     }
   
     /**

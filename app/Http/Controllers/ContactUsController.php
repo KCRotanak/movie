@@ -44,7 +44,7 @@ class ContactUsController extends Controller
     
         Contact::create($request->all());
 
-        return redirect()->route('welcome');
+        return redirect()->route('contact.create');
     }
 
     /*

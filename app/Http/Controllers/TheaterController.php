@@ -41,6 +41,7 @@ class TheaterController extends Controller
     {
         $request->validate([
             'time' => 'required',
+            
         ]);
   
         $input = $request->all();

@@ -1,0 +1,24 @@
+.loader {
+    top: 50;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: #393939;
+    text-align: center;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+    transition: opacity 1s ease;
+    
+}
+
+.blank{
+    margin-top: 200px;
+}
+.loader-content {
+    height: 100%;
+    background-color: #393939;
+    display: block;
+    position: relative;
+}

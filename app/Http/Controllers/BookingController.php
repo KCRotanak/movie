@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Slider;
-class SliderController extends Controller
+
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::orderby('id', 'desc')->paginate(10);
-        return view('sliders.index', compact('sliders'));
+        return view('frontend.booking');  
     }
 
     /**
@@ -24,7 +23,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return  view ('sliders.create');
+        //
     }
 
     /**
@@ -35,25 +34,7 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        {
-            $this->validate($request, array(
-                'title'=>'required|max:225',
-                'photo'=>'required|image',
-              ));
-              $slider = new Slider;
-              $slider->title = $request->input('title');
-              if ($request->hasFile('photo')) {
-                $photo = $request->file('photo');
-                $filename = 'slide' . '-' . time() . '.' . $photo->getClientOriginalExtension();
-                $location = public_path('images/');
-                $request->file('photo')->move($location, $filename);
-    
-                $slider->photo = $filename;
-              }
-              $slider->save();
-              return redirect()->route('slides.index');
-        }
-    
+        //
     }
 
     /**
@@ -75,8 +56,7 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-      $slider = Slider::findOrFail($id);
-      return view('sliders.edit', compact('slider'));
+        //
     }
 
     /**
@@ -99,12 +79,6 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-      $slider = Slider::findOrFail($id);
-      Storage::delete($slider->photo);
-      $slider->delete();
-    
-      return redirect()->route('slides.index')
-              ->with('success',
-               'Slide successfully deleted');
+        //
     }
 }

@@ -1,44 +1,57 @@
 @extends('layouts.dashboard.dashboard')
 @section('content')
-    <div class="card card-primary" style="margin: 100px 400px; display: fixed">
-        <div class="card-header">
-            <h3 class="card-title">Create Account User</h3>
+<div class="row d-flex justify-content-center">
+    <div class="col-lg-7 margin-tb">
+        <div class="float-left">
+            <h2>Add New Users</h2>
         </div>
-        <!-- /.card-header -->
+        <div class="float-right">
+            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+        </div>
+    </div>
+</div>
+    <div class="card card-primary" style="margin: 100px 400px; display: fixed">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- form start -->
-        <form action="/admin/users" method="POST">
+        <form action="{{ route('users.store') }}" method="POST">
             @csrf
             <div class="card-body">
-                <div class="form-group">
-                    <label for="name">Username</label>
-                    <input type="text" class="form-control" name="name" id="exampleInputName1" placeholder="Enter username">
-                </div>
-                <div class="form-group">
-                    <label for="phone">PhoneNumber</label>
-                    <input type="text" class="form-control" name="phone" id="exampleInputName1" placeholder="Enter phonenumber">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email">
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                {{-- <div class="form-group">
-                    <label for="exampleInputPassword2">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder=" Confirm Password">
-                </div> --}}
-                {{-- <div class="form-group">
-                    <label for="exampleInputFile">Choose profile</label>
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                <div class="row" style="justify-content: center">
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <div class="form-group">
+                            <strong>UserName:</strong>
+                            <input type="text" name="name" class="form-control bg-grey text-light" placeholder="Enter UserName">
                         </div>
                     </div>
-                </div> --}}
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <div class="form-group">
+                            <strong>Email:</strong>
+                            <input type="email" name="email" class="form-control bg-grey text-light" placeholder="Enter Email">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <div class="form-group">
+                            <strong>PhoneNumber:</strong>
+                            <input type="text" name="phone" class="form-control bg-grey text-light"
+                                placeholder="Enter phonenumber">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <div class="form-group">
+                            <strong>Password:</strong>
+                            <input type="password" name="password" class="form-control bg-grey text-light"
+                                placeholder="Password">
+                        </div>
+                    </div>
                 <div class="row">
                     {{-- <div class="col-sm-6">
                         <!-- select -->

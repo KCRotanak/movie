@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"content="IE=edge">
-    <title>tickets_home</title>
+    <title>Phoenix Home</title>
     <link rel="icon" href="{{ asset('img/onlylogo.png') }}" type="image/png" />
     <meta name="description" content="">
     <meta name="viewport" content="width-device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -15,7 +15,8 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/showtime.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/seat.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
-
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/loading.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/booking.css') }} ">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     {{-- swiper css --}}
@@ -38,10 +39,18 @@
 </head>
 
 <body style="background-color: #393939">
+         {{-- loading --}}       
+         <div class="loader">
+            <div class="blank"></div>
+            <div class="loader-content">
+                <img src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_medium.gif" alt="Loader" class="loader-loader" />
+            </div>
+         </div>
+         {{-- --------------- --}}
     <header>
         <div class="header-top">
             <div class="bar-top-left">
-                <img src="../img/logo.png"alt="logo"style="cursor: pointer" onclick="window.location.href='/'">
+                <img src="../img/logo.png"alt="logo" style="cursor: pointer" onclick="window.location.href='/'">
             </div>
 
 
@@ -102,9 +111,13 @@
         </div>
 
         {{-- bootstrap of logo --}}
+
     </header>
+
     <div class="wrapper-body">
-        {{-- <main> --}}
+        {{-- <main> --}}     
+              
+
         @yield('content')
 
         {{-- </main> --}}
@@ -184,7 +197,17 @@
             lightBoxVideo.pause();
         }
     </script>
-
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+            var loader = document.getElementsByClassName("loader")[0];
+            loader.className = "loader fadeout";
+            setTimeout(function() {
+                loader.style.display = "none"
+            }, 500)
+        }, 500)
+    }
+</script>
 
 </body>
 
