@@ -1,14 +1,13 @@
-<p>
-if Using LocalHost
--cloning code
--composer update
--php artisan key:generate
--copy env and rename to .env
--php artisan migrate
--npm install
--npm run dev
--php artisan serve
-</p>
+<p>if Using LocalHost</p>
+<p>-cloning code</p>
+<p>-composer update</p>
+<p>-php artisan key:generate</p>
+<p>-copy env and rename to .env</p>
+<p>-php artisan migrate</p>
+<p>-npm install</p>
+<p>-npm run dev</p>
+<p>-php artisan serve</p>
+
 
 
 
