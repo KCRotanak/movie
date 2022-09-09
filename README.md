@@ -1,3 +1,4 @@
+<p>
 if Using LocalHost
 -cloning code
 -composer update
@@ -7,6 +8,7 @@ if Using LocalHost
 -npm install
 -npm run dev
 -php artisan serve
+</p>
 
 
 
