@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"content="IE=edge">
-    <title>Phoenix Cinema</title>
+    <title>Phoenix Home</title>
     <link rel="icon" href="{{ asset('img/onlylogo.png') }}" type="image/png" />
     <meta name="description" content="">
     <meta name="viewport" content="width-device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
@@ -15,21 +15,24 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/showtime.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/seat.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
-    <link rel="stylesheet" href=" {{ asset('/css/frontcss/edit_profile.css') }} ">
-
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/loading.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/booking.css') }} ">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     {{-- swiper css --}}
-    <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">`
-    {{-- navbar drop down --}}
-    {{-- <link href="https://cdn.jsdelivr.net/npmwsss/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+    <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js""></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
+    <!-- CSS bootstrap 5.2 only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script scr=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script scr=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
     <script scr=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
@@ -42,7 +45,15 @@
 </head>
 
 <body style="background-color: #393939">
+         
     <header>
+        {{-- loading --}}       
+        <div class="loader">
+            <div class="blank"></div>
+            <div class="loader-content">
+                <img src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_medium.gif" alt="Loader" class="loader-loader" />
+            </div>
+         </div>
         <div class="header-top">
             <div class="bar-top-left">
                 <img src="../img/logo.png"alt="logo" style="cursor: pointer" onclick="window.location.href='/'">
@@ -57,7 +68,9 @@
                     @if (Route::has('register'))
                         <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
                     @endif
-                @else​​​​
+
+                @else    
+
                     <div class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -65,7 +78,6 @@
                                 class="img-xs rounded-circler" style="border-radius: 50%; width: 35px; height: 35px">&ensp;
                             <span class="mb-0 d-sm-block navbar-profile-name">{{ auth()->user()->name }}
                             </span>
-                            {{-- <i class="mdi mdi-menu-down d-none d-sm-block"></i> --}}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                             aria-labelledby="profileDropdown">
@@ -105,9 +117,13 @@
         </div>
 
         {{-- bootstrap of logo --}}
+
     </header>
+
     <div class="wrapper-body">
-        {{-- <main> --}}
+        {{-- <main> --}}     
+              
+
         @yield('content')
 
         {{-- </main> --}}
@@ -184,7 +200,17 @@
             lightBoxVideo.pause();
         }
     </script>
-
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+            var loader = document.getElementsByClassName("loader")[0];
+            loader.className = "loader fadeout";
+            setTimeout(function() {
+                loader.style.display = "none"
+            }, 500)
+        }, 500)
+    }
+</script>
 
 </body>
 

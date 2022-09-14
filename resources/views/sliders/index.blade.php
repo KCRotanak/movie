@@ -1,39 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel 9 Drag and Drop File Upload with Dropzone JS - codecheef.org</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-</head>
-<body>
-    
-<div class="container">
+@extends('layouts.dashboard.dashboard')
+
+@section('content')
     <div class="row">
-        <div class="col-md-12">
-            <h1>Laravel 9 Drag and Drop File Upload with Dropzone JS - codecheef.org</h1>
-    
-            <form action="{{ route('sliders.store') }}" method="post" enctype="multipart/form-data" id="image-upload" class="dropzone">
-                @csrf
-                <div>
-                    <h4>Upload Multiple Image By Click On Box</h4>
-                </div>
-            </form>
+        <div class="col-lg-12 margin-tb">
+            <div class="float-right">
+                <a class="btn btn-success" href="{{ route('sliders.create') }}">add slide</a>
+            </div>
+        </div>
+
+
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+
+
+        <table class="table table-bordered mt-2">
+            <tr>
+                <th>No</th>
+                <th>Image</th>
+                <th width="280px">Action</th>
+            </tr>
+            @foreach ($sliders as $slide)
+                <tr>
+                    <td>{{ ++$i }}</td>
+                    <td><img src="/slideimage/{{ $slide->image }}" width="100px"></td>
+                    <td>
+                        <form action="{{ route('sliders.destroy', $slide->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+        <div style="position: fixed; bottom: 50;">
+        {!! $sliders->links() !!}
         </div>
     </div>
-</div>
-    
-<script type="text/javascript">
-  
-        Dropzone.autoDiscover = false;
-  
-        var dropzone = new Dropzone('#image-upload', {
-              thumbnailWidth: 200,
-              maxFilesize: 1,
-              acceptedFiles: ".jpeg,.jpg,.png,.gif"
-            });
-  
-</script>
-    
-</body>
-</html>
+@endsection

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -23,15 +23,24 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'name' => 'required',
-            'phone' => 'required',
+            // 'phone' => 'required',
             'email' => 'required',
             'password' => 'required',
             'type' => 'required'
         ]);
+        	User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'phone' => $request['phone'],
+            'type' => $request['type'],
+        
+        ]);
     
-        User::create($request->all());
+        // User::create($request->all());
      
         return redirect()->route('users.index')
                         ->with('success','Users created successfully!');

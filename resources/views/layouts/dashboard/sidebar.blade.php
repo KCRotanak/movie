@@ -45,9 +45,9 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/images">
+            <a class="nav-link" href="/sliders">
                 <span class="menu-icon">
-                    <i class="mdi mdi-table-large"></i>
+                    <i class="mdi mdi-view-carousel"></i>
                 </span>
                 <span class="menu-title">Slider</span>
             </a>
@@ -55,7 +55,7 @@
         <li class="nav-item menu-items">
             <a class="nav-link" href="/contacts">
                 <span class="menu-icon">
-                    <i class="mdi mdi-table-large"></i>
+                    <i class="mdi mdi-email-outline"></i>
                 </span>
                 <span class="menu-title">Contact</span>
             </a>
@@ -71,7 +71,7 @@
         <li class="nav-item menu-items">
             <a class="nav-link" href="/users">
                 <span class="menu-icon">
-                    <i class="mdi mdi-table-large"></i>
+                    <i class="mdi mdi-account-multiple"></i>
                 </span>
                 <span class="menu-title">Users</span>
             </a>

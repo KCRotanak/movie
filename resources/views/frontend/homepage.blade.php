@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
+
     <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
+        
         <div class="carousel-inner" role="listbox">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -108,9 +110,8 @@
             </div>
         </div>
     </div>
-           
-
     <!-- /.carousel -->
+
     <script>
         $(document).ready(function(event) {
             var top_header = $(".carousel .fill");

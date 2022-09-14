@@ -16,6 +16,8 @@ class SoonfrontController extends Controller
      */
     public function index()
     {
+        // dd($soons);
+        
         $soons = Soon::all();
         return view('frontend.comingsoon', compact('soons'));  
     }

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2500" data-ride="carousel">
+        
+
         <div class="carousel-inner" role="listbox">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -64,6 +66,7 @@
 
         <!-- /.carousel -->
 
+
         <div class="coming">
 
             <div class="btn-coming">
@@ -72,7 +75,18 @@
                     <a href="{{ asset('/comingsoon') }}"> Coming soon </a>
                 </ul>
             </div>
+            
+            @foreach ($soons as $soon)
+            <div id="light">
+                <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
+                <iframe width="1000" height="500"src="{{ $soon->URL }}"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            @endforeach
 
+            <div id="fade" onClick="lightbox_close();"></div>
             {{-- Old swiper --}}
             <div class="card-coming swiper">
                 {{-- =swiper --}}
@@ -86,30 +100,50 @@
                         <div class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
                     @endif
-                    <div class="card swiper-slide" onclick="window.location.href='/comingsoon/'+{{ $soon->id }}">
+
+                    {{-- <div class="url_content">
+                        <div class="header">
+                            <h3>Trailer</h3>
+                            <label for="click" class="fas fa-times" aria-hidden="true">
+                            </label>
+                        </div>
+                        
+                    </div> --}}
+                    <div class="card swiper-slide">
+                        {{-- <input type="checkbox" id="click"> --}}
                         <div class="image-content">
                             <div class="card-image">
-                                <img src="{{ asset('../image/' . $soon->image) }}" alt="" class="card-img">
+                            <img src="{{ asset('../image/' . $soon->image) }}" alt="" onclick="lightbox_open();"
+                                
+                                        class="card-img">
+
                             </div>
-                        </div>
-                        <div class="card-content">
-
-                            <h4>{{ $soon->name }}</h4>
 
                         </div>
+                        
+                                <div class="card-content">
+
+                                    <h4>{{ $soon->name }}</h4>
+
+                                </div>
+
+                            </div>
+
+                            @if ($loop->index === $rows - 1 || $loop->last)
                     </div>
-
-                    @if ($loop->index === $rows - 1 || $loop->last)
+                </div>
+                @endif
+                @endforeach
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
-        @endif
-        @endforeach
-        <div class="swiper-button-next swiper-navBtn"></div>
-        <div class="swiper-button-prev swiper-navBtn"></div>
-        <div class="swiper-pagination"></div>
     </div>
-    </div>
-    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 
     <!-- /.carousel -->
     <script>

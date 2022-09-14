@@ -2,13 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <a class="btn btn-info" href="/admin/home">back</a>
 
-            </div>
-            {{-- <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('contacts.create') }}"> Create Theater</a>
-            </div> --}}
         </div>
     </div>
     
@@ -29,7 +23,7 @@
         </tr>
         @foreach ($contacts as $contact)
         <tr>
-            <td>{{ $contact->id }}</td>
+            <td>{{ ++$i }}</td>
             <td>{{ $contact->name }}</td>
             <td>{{ $contact->email }}</td>
             <td>{{ $contact->phone }}</td>
@@ -50,7 +44,9 @@
         </tr>
         @endforeach
     </table>
+    <div style="position: fixed; bottom: 50;">
+        {!! $contacts->links() !!}
+        </div>
     
-    {{-- {!! $contacts->links() !!} --}}
 
 @endsection
