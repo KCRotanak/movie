@@ -9,21 +9,23 @@
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-                <li data-target="#myCarousel" data-slide-to="6"></li>
-                <li data-target="#myCarousel" data-slide-to="7"></li>
             </ol>
 
-            
-            @foreach ($slides as $slide)
 
-            <div class="item active">
-                <div class="fill first-slide">
-                    <img src="{{ asset('../slideimage/' . $slide->image) }}" alt="">
+            @foreach ($slideOnes as $slideOne)
+                <div class="item active">
+                    <div class="fill second-slide">
+                        <img src="{{ asset('../slideimage/' . $slideOne->image) }}" alt="">
+                    </div>
                 </div>
-            </div>
+            @endforeach
 
+            @foreach ($slides as $slide)
+                <div class="item">
+                    <div class="fill second-slide">
+                        <img src="{{ asset('../slideimage/' . $slide->image) }}" alt="">
+                    </div>
+                </div>
             @endforeach
 
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -35,7 +37,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
         <div class="showing">
 
             <div class="btn-showing">

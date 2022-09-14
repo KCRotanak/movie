@@ -1,57 +1,37 @@
 @extends('layouts.app')
 @section('content')
-    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2500" data-ride="carousel">
+
+    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
+        
         <div class="carousel-inner" role="listbox">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-                <li data-target="#myCarousel" data-slide-to="6"></li>
-                <li data-target="#myCarousel" data-slide-to="7"></li>
             </ol>
+            
+            
+            @foreach ($slideOnes as $slideOne)
+
             <div class="item active">
-                <div class="fill first-slide">
-                    <img src="{{ asset('/img/transformers.jpg') }}" alt="">
+                <div class="fill second-slide">
+                    <img src="{{ asset('../slideimage/' . $slideOne->image) }}" alt="">
                 </div>
             </div>
+
+            @endforeach
+
+            @foreach ($slides as $slide)
+
             <div class="item">
                 <div class="fill second-slide">
-                    <img src="{{ asset('/img/thor.jpg') }}" alt="">
+                    <img src="{{ asset('../slideimage/' . $slide->image) }}" alt="">
                 </div>
             </div>
-            <div class="item">
-                <div class="fill third-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill forth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill fifth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill sixth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill seventh-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill eigth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
+
+            @endforeach
+
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -62,11 +42,9 @@
             </a>
         </div>
 
-        <!-- /.carousel -->
+        <div class="showing">
 
-        <div class="coming">
-
-            <div class="btn-coming">
+            <div class="btn-showing">
                 <ul>
                     <a href="/"> Now showing </a>
                     <a href="{{ asset('/comingsoon') }}"> Coming soon </a>
@@ -75,9 +53,9 @@
 
             {{-- Old swiper --}}
             <div class="card-coming swiper">
-                {{-- =swiper --}}
+                {{-- swiper --}}
                 @php
-                    $countSoon = $soons->count();
+                    $countSoon = $soons->count();   
                     $rows = $countSoon / 2;
                 @endphp
 
@@ -86,7 +64,7 @@
                         <div class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
                     @endif
-                    <div class="card swiper-slide" onclick="window.location.href='/comingsoon/'+{{ $soon->id }}">
+                    <div class="card swiper-slide" onclick="window.location.href='/soondetail/'+{{ $soon->id }}">
                         <div class="image-content">
                             <div class="card-image">
                                 <img src="{{ asset('../image/' . $soon->image) }}" alt="" class="card-img">
@@ -150,29 +128,6 @@
     <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
 
     {{-- video link --}}
-    <script>
-        window.document.onkeydown = function(e) {
-            if (!e) {
-                e = event;
-            }
-            if (e.keyCode == 27) {
-                lightbox_close();
-            }
-        }
 
-        function lightbox_open() {
-            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-            window.scrollTo(0, 0);
-            document.getElementById('light').style.display = 'block';
-            document.getElementById('fade').style.display = 'block';
-            lightBoxVideo.play();
-        }
 
-        function lightbox_close() {
-            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-            document.getElementById('light').style.display = 'none';
-            document.getElementById('fade').style.display = 'none';
-            lightBoxVideo.pause();
-        }
-    </script>
 @endsection

@@ -17,19 +17,18 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/loading.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/booking.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/style.css') }} ">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    XHTML
+    <link href="/lib/lity/lity.min.css" rel="stylesheet">
+
     {{-- swiper css --}}
     <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">`
     {{-- navbar drop down --}}
     {{-- <link href="https://cdn.jsdelivr.net/npmwsss/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
-    </script>
 
     {{-- link icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -39,14 +38,15 @@
 </head>
 
 <body style="background-color: #393939">
-         {{-- loading --}}       
-         <div class="loader">
-            <div class="blank"></div>
-            <div class="loader-content">
-                <img src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_medium.gif" alt="Loader" class="loader-loader" />
-            </div>
-         </div>
-         {{-- --------------- --}}
+    {{-- loading --}}
+    <div class="loader">
+        <div class="blank"></div>
+        <div class="loader-content">
+            <img src="https://i.pinimg.com/originals/3d/6a/a9/3d6aa9082f3c9e285df9970dc7b762ac.gif" alt="Loader"
+                class="loader-loader" />
+        </div>
+    </div>
+    {{-- --------------- --}}
     <header>
         <div class="header-top">
             <div class="bar-top-left">
@@ -62,9 +62,7 @@
                     @if (Route::has('register'))
                         <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
                     @endif
-
-                @else    
-
+                @else
                     <div class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -75,7 +73,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                             aria-labelledby="profileDropdown">
-                           
+
                             <li>
                                 <a class="dropdown-item" href="/editprofile">
                                     {{ 'Edit account' }}
@@ -93,7 +91,7 @@
                                     {{ 'Logout' }}
                                 </a>
                             </li>
-                           
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -115,8 +113,8 @@
     </header>
 
     <div class="wrapper-body">
-        {{-- <main> --}}     
-              
+        {{-- <main> --}}
+
 
         @yield('content')
 
@@ -134,7 +132,8 @@
                 <a href="/">Home</a><br>
                 <a href="/">Now Showing</a><br>
                 <a href="/comingsoon">Coming Soon</a><br>
-                <a href="/contact">Contact Us</a>
+                <a href="/contact">Contact Us</a><br>
+                <a href="/aboutus">About Us</a>
             </div>
 
             <div class="top-middle-footer">
@@ -172,43 +171,25 @@
 
         })
     </script>
+
+    <script src="{{ asset('js/popup.js') }}"></script>
     <script>
-        window.document.onkeydown = function(e) {
-            if (!e) {
-                e = event;
-            }
-            if (e.keyCode == 27) {
-                lightbox_close();
-            }
-        }
-
-        function lightbox_open() {
-            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-            window.scrollTo(0, 0);
-            document.getElementById('light').style.display = 'block';
-            document.getElementById('fade').style.display = 'block';
-            lightBoxVideo.play();
-        }
-
-        function lightbox_close() {
-            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-            document.getElementById('light').style.display = 'none';
-            document.getElementById('fade').style.display = 'none';
-            lightBoxVideo.pause();
+        window.onload = function() {
+            setTimeout(function() {
+                var loader = document.getElementsByClassName("loader")[0];
+                loader.className = "loader fadeout";
+                setTimeout(function() {
+                    loader.style.display = "none"
+                }, 500)
+            }, 500)
         }
     </script>
-<script>
-    window.onload = function() {
-        setTimeout(function() {
-            var loader = document.getElementsByClassName("loader")[0];
-            loader.className = "loader fadeout";
-            setTimeout(function() {
-                loader.style.display = "none"
-            }, 500)
-        }, 500)
-    }
-</script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
 </body>
 
 

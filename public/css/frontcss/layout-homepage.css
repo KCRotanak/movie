@@ -209,7 +209,8 @@ header .header-bottom a:hover {
 }
 
 
-.first-slide img{
+.first-slide img,
+.second-slide img{
     width: 100%;
     height: 100%;
 }
