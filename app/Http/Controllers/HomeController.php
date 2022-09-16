@@ -30,10 +30,17 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all();
-        $slides = Slide::all();
+        $soons = Soon::all();
+        $slideOnes = Slide::select()
+        ->where('id', '1')
+        ->get();
+
+        $slides = Slide::select()
+        ->where('id', '>=', '2')
+        ->get();
 
         // dd($slides);
-        return view('frontend.homepage', compact('products', 'slides'));     
+        return view('frontend.homepage', compact('products', 'slides','slideOnes'));     
     } 
   
     /**

@@ -149,14 +149,23 @@ header .header-bottom {
     padding-left: 150px;
     padding-right: 150px;
 }
-header .header-bottom a {
+.header-bottom a {
     color: white;
     text-decoration: none;
 }
-header .header-bottom a:hover {
-    color: #d3b74b;
+.header-bottom > a.active {
+    /* background-color: red; */
+    color: #d3b74b !important;
 }
-
+.header-bottom a:hover {
+    color: #d3b74b;
+    /* border-bottom:3px #FFF solid; */
+}
+/* .header-bottom a:active {
+    background-color:#dfe0e5;
+    overflow:hidden;    
+    color: black;
+} */
 /* layout */
 .wrapper-body {
     width: 100%;

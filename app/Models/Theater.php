@@ -9,6 +9,10 @@ class Theater extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'time'
+        'name'
     ];
+    public function schedule()
+    {
+        return $this->belongsTo(Schedule::class);
+    }
 }

@@ -17,8 +17,11 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/loading.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/booking.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/style.css') }} ">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="/lib/lity/lity.min.css" rel="stylesheet">
+
     {{-- swiper css --}}
     <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js""></script>
@@ -38,22 +41,19 @@
     <script scr=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     {{-- link icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    
+
     <style>
         @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+        /* .active {
+            color: #d3b74b;
+            
+        } */
     </style>
 </head>
 
 <body style="background-color: #393939">
-         
+    {{-- --------------- --}}
     <header>
-        {{-- loading --}}       
-        <div class="loader">
-            <div class="blank"></div>
-            <div class="loader-content">
-                <img src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_medium.gif" alt="Loader" class="loader-loader" />
-            </div>
-         </div>
         <div class="header-top">
             <div class="bar-top-left">
                 <img src="../img/logo.png"alt="logo" style="cursor: pointer" onclick="window.location.href='/'">
@@ -68,9 +68,7 @@
                     @if (Route::has('register'))
                         <a class="button-register" href="{{ route('register') }}">{{ 'Register' }}</a>
                     @endif
-
-                @else    
-
+                @else
                     <div class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -81,7 +79,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                             aria-labelledby="profileDropdown">
-                           
+
                             <li>
                                 <a class="dropdown-item" href="/editprofile">
                                     {{ 'Edit account' }}
@@ -99,7 +97,7 @@
                                     {{ 'Logout' }}
                                 </a>
                             </li>
-                           
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -110,10 +108,16 @@
             </div>
         </div>
         <div class="header-bottom">
-            <a href="{{ asset('/') }}">Home</a>
-            <a href="{{ asset('/showtime') }}">Showtime</a>
-            <a href="{{ asset('/comingsoon') }}">Coming Soon</a>
-            <a href="{{ asset('/contact') }}">Contact Us</a>
+
+            @php
+                $currentRouteName = request()->route()->getName();
+            @endphp
+
+            <a href="{{ asset('/') }}" class="{{$currentRouteName === 'home' ? 'active' : ''}} six">Home</a>
+            <a href="{{ asset('/showtime') }}" class="{{$currentRouteName === 'showtime' ? 'active' : ''}} one">Showtime</a>
+            <a href="{{ asset('/comingsoon') }}" class="{{$currentRouteName === 'comingsoon' ? 'active' : ''}} one">Coming Soon</a>
+            <a href="{{ asset('/contact') }}" class="{{$currentRouteName === 'contact.create' ? 'active' : ''}} one">Contact Us</a>
+
         </div>
 
         {{-- bootstrap of logo --}}
@@ -121,8 +125,8 @@
     </header>
 
     <div class="wrapper-body">
-        {{-- <main> --}}     
-              
+        {{-- <main> --}}
+
 
         @yield('content')
 
@@ -140,7 +144,8 @@
                 <a href="/">Home</a><br>
                 <a href="/">Now Showing</a><br>
                 <a href="/comingsoon">Coming Soon</a><br>
-                <a href="/contact">Contact Us</a>
+                <a href="/contact">Contact Us</a><br>
+                <a href="/aboutus">About Us</a>
             </div>
 
             <div class="top-middle-footer">
@@ -167,14 +172,23 @@
             <a href="/cookie">Cookie Preferences</a>
         </div>
     </footer>
-    {{-- js popup video --}}
+    {{-- nav bar --}}
     <script>
+    $(document).ready(function () {
+  
+        $(".one").click(function (){
+          $(this).addClass("active").siblings().removeClass("active");
+        });
+      });
+    </script>
+    {{-- js popup video --}}
+    {{-- <script>
         $(document).on("click", "#cust_btn", function() {
 
             $("#myModal").modal("toggle");
 
         })
-    </script>
+    </script> --}}
     <script>
         window.document.onkeydown = function(e) {
             if (!e) {
@@ -200,17 +214,19 @@
             lightBoxVideo.pause();
         }
     </script>
-<script>
-    window.onload = function() {
-        setTimeout(function() {
-            var loader = document.getElementsByClassName("loader")[0];
-            loader.className = "loader fadeout";
+    <script>
+        window.onload = function() {
             setTimeout(function() {
-                loader.style.display = "none"
+                var loader = document.getElementsByClassName("loader")[0];
+                loader.className = "loader fadeout";
+                setTimeout(function() {
+                    loader.style.display = "none"
+                }, 500)
             }, 500)
-        }, 500)
-    }
-</script>
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
 </body>
 

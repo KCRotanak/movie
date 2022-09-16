@@ -4,56 +4,23 @@
     <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
         
         <div class="carousel-inner" role="listbox">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-                <li data-target="#myCarousel" data-slide-to="6"></li>
-                <li data-target="#myCarousel" data-slide-to="7"></li>
-            </ol>
-            <div class="item active">
-                <div class="fill first-slide">
-                    <img src="{{ asset('/img/transformers.jpg') }}" alt="">
+
+            @foreach ($slideOnes as $slideOne)
+                <div class="item active">
+                    <div class="fill second-slide">
+                        <img src="{{ asset('../slideimage/' . $slideOne->image) }}" alt="">
+                    </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="fill second-slide">
-                    <img src="{{ asset('/img/thor.jpg') }}" alt="">
+            @endforeach
+
+            @foreach ($slides as $slide)
+                <div class="item">
+                    <div class="fill second-slide">
+                        <img src="{{ asset('../slideimage/' . $slide->image) }}" alt="">
+                    </div>
                 </div>
-            </div>
-            <div class="item">
-                <div class="fill third-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill forth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill fifth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill sixth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill seventh-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill eigth-slide">
-                    <img src="{{ asset('/img/avatar.jpg') }}" alt="">
-                </div>
-            </div>
+            @endforeach
+
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -63,7 +30,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
         <div class="showing">
 
             <div class="btn-showing">
@@ -81,7 +47,7 @@
 
                 @foreach ($products as $product)
                     @if ($loop->first || $loop->index === $rows)
-                        <div class="slide-content">
+                        <d  v class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
                                 @endif
                                 <div class="card swiper-slide" onclick="window.location.href='/moviedetail/'+{{ $product->id }}">

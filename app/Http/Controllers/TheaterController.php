@@ -40,12 +40,11 @@ class TheaterController extends Controller
     public function store(StoreTheaterRequest $request)
     {
         $request->validate([
-            'time' => 'required',
+            'name' => 'required',
             
         ]);
   
-        $input = $request->all();
-        Theater::create($input);
+        Theater::create($request->all());
      
         return redirect()->route('theaters.index')
                         ->with('success','Theater created successfully.');

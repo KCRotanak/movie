@@ -28,8 +28,8 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Time:</strong>
-                    <input type="time" name="time" class="form-control" placeholder="Time">
+                    <strong>name:</strong>
+                    <input type="text" name="name" class="form-control" placeholder="Theater name">
                 </div>
             </div>
 

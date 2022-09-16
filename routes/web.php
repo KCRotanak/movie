@@ -6,8 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SoonfrontController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SeatController;
+use App\Http\Controllers\SeatfrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SoondetailController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SoonController;
@@ -16,6 +18,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\ScheduleController;
 use App\Models\Slide;
 
 /*
@@ -29,16 +32,16 @@ use App\Models\Slide;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/booking', [BookingController::class, 'index']);
-Route::get('/comingsoon', [SoonfrontController::class, 'index']);
-Route::get('/showtime', [ShowtimeController::class, 'index']);
-// Route::get('/showtime', function(){
-   
-    
-//     return view('frontend.showtime');
-// });
+Route::get('/comingsoon', [SoonfrontController::class, 'index'])->name('comingsoon');
+Route::get('/showtime', [ShowtimeController::class, 'index'])->name('showtime');
+Route::get('/seat', [SeatfrontController::class, 'index']);
+Route::get('/aboutus', function(){
+    return view('frontend.aboutus');
+});
 Route::get('/moviedetail/{id}', [ MovieController::class,'show'])->name('moviedetail');
+Route::get('/soondetail/{id}', [ SoondetailController::class,'show'])->name('soondetail');
 Route::get('/contact', [ContactUsController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactUsController::class, 'store'])->name('contact.store');
 
@@ -77,6 +80,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('contacts',ContactController::class); 
     Route::resource('users', UserController::class);
     Route::resource('sliders',SlideController::class);
+    Route::resource('schedules',ScheduleController::class);
 });
 
   

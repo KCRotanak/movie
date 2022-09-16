@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('content')
     <div class="movie-descript">
-        <img src="{{ asset('/img/kungfupanda.jpg') }}" alt="">
+        <img src="{{ asset('/image/' .$product->image) }}" alt="">
         <div class="movie-letter">
 
-            <p><b>Kongfu Panda 3</b></p>
+            <p><b>{{$product->name}}</b></p>
             <i class="bx bxs-calendar"></i>
-            <span>05-Aug-2022</span><br>
+            <span>{{$product->date}}</span><br>
             <i class="bx bxs-time"></i>
-            <span>120 minutes</span><br>
+            <span>{{$product->duration}}</span><br>
             <i class="bx bx-movie-play"></i>
-            <span>Comedy</span><br>
+            <span>{{$product->genre}}</span><br>
             <i class="bx bxs-megaphone"></i>
-            <span>EN/KH</span>
+            <span>{{$product->lang}}</span>
         </div>
 
     </div>

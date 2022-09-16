@@ -40,44 +40,7 @@
   overflow: hidden;
   margin-top: 17px;
 }
-#click {
-  display: none;
-}
-.url_content {
-  opacity: 0;
-  visibility: hidden;
-width: 400px;
-height: 350px;
-background-color: white;
-border-radius: 3px;
 
-}
-#click:checked ~ .url_content {
-  opacity: 1;
-  visibility: visible;
-}
-.url_content .header {
-height: 68px;
-background-color: green;
-overflow: hidden;
-border-radius: 3px 3px 0 0;
-
-}
-.url_content .header h3 {
-color: white;
-padding-left: 32px;
-font-weight: normal;
-
-}
-.fa-times {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
 .card:hover {
   -webkit-transform: scale(1);
   transform: scale(0.92);
@@ -88,22 +51,15 @@ font-weight: normal;
   display: flex;
   
 }
-.card{
+.card-coming .card{
   width: 25%;
   height:50%;
   transition: 0.3s ease-in-out;
-  /* cursor: pointer; */
-  /* display: none; */
+  cursor: pointer;
 
 }
 
-.swiper-slide {
- /* display: none; */
-  /* background-color: red; */
-
-}
-
-.image-content{
+.card-coming .image-content{
   width: 100%;
   height: 80%;
   position: relative;
@@ -111,7 +67,7 @@ font-weight: normal;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* padding: 25px 0;  */
 }
-.card-image{
+.card-coming .card-image{
   position: relative;
   height: 100%;
   width: 100%;
@@ -120,18 +76,18 @@ font-weight: normal;
   
 }
 
-.card-image .card-img{
+.card-coming .card-image .card-img{
   height: 100%;
   width: 100%;
-  display: block;
+  /* display: block;
     color: white;
     text-align: center;
     font-size: 22px;
-    cursor: pointer;
+    cursor: pointer; */
   
 }
 
-.card-content {
+.card-coming .card-content {
   width: 100%;
   height: 20%;
   color: white;
@@ -217,58 +173,4 @@ font-weight: normal;
     text-align: left;
 } */
 
-#fade {
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 1001;
-    -moz-opacity: 0.8;
-    opacity: .80;
-    filter: alpha(opacity=80);
-  }
-  
-  #light {
-    display: none;
-    position:fixed;
-    background-color: white;
-    top: 25%;
-    left: 25%;
-    max-width: 1500px;
-    margin-bottom: 400px;
-    max-height: 500px;
-  
-    z-index: 1002;
-    overflow: visible;
-  }
 
-  
-  #boxclose {
-    /* float:right; */
-    cursor: pointer;
-    color: #fff;
-    border: 1px solid #AEAEAE;
-    border-radius: 3px;
-    background: #222222;
-    font-size: 31px;
-    font-weight: bold;
-    display: inline-block;
-    line-height: 0px;
-    padding: 11px 3px;
-    position: absolute;
-    right: 2px;
-    top: 2px;
-    z-index: 1002;
-    opacity: 0.9;
-  }
-  
-  .boxclose:before {
-    content: "×";
-  }
-  
-  #fade:hover ~ #boxclose {
-    display:none;
-  }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Soonfront;
 use App\Models\Soon;
+use App\Models\Slide;
 use App\Http\Requests\StoreSoonfrontRequest;
 use App\Http\Requests\UpdateSoonfrontRequest;
 
@@ -19,7 +20,14 @@ class SoonfrontController extends Controller
         // dd($soons);
         
         $soons = Soon::all();
-        return view('frontend.comingsoon', compact('soons'));  
+        $slideOnes = Slide::select()
+        ->where('id', '1')
+        ->get();
+
+        $slides = Slide::select()
+        ->where('id', '>=', '2')
+        ->get();
+        return view('frontend.comingsoon', compact('soons','slides', 'slideOnes'));  
     }
 
     /**
