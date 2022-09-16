@@ -8,7 +8,6 @@
     <link rel="icon" href="{{ asset('img/onlylogo.png') }}" type="image/png" />
     <meta name="description" content="">
     <meta name="viewport" content="width-device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/layout-homepage.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/comingsoon.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/moviedetail.css') }} ">
@@ -17,11 +16,12 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/loading.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/booking.css') }} ">
-    <link rel="stylesheet" href=" {{ asset('/css/frontcss/style.css') }} ">
+    {{-- <link rel="stylesheet" href=" {{ asset('/css/frontcss/style.css') }} "> --}}
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    XHTML
-    <link href="/lib/lity/lity.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     {{-- swiper css --}}
     <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">`
@@ -29,6 +29,7 @@
     {{-- <link href="https://cdn.jsdelivr.net/npmwsss/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
+    {{-- forget password --}}
 
     {{-- link icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -37,7 +38,7 @@
     </style>
 </head>
 
-<body style="background-color: #393939">
+<body>
     {{-- loading --}}
     <div class="loader">
         <div class="blank"></div>
@@ -51,6 +52,7 @@
         <div class="header-top">
             <div class="bar-top-left">
                 <img src="../img/logo.png"alt="logo" style="cursor: pointer" onclick="window.location.href='/'">
+               
             </div>
 
 
@@ -114,8 +116,6 @@
 
     <div class="wrapper-body">
         {{-- <main> --}}
-
-
         @yield('content')
 
         {{-- </main> --}}
@@ -164,13 +164,13 @@
         </div>
     </footer>
     {{-- js popup video --}}
-    <script>
+    {{-- <script>
         $(document).on("click", "#cust_btn", function() {
 
             $("#myModal").modal("toggle");
 
         })
-    </script>
+    </script> --}}
 
     <script src="{{ asset('js/popup.js') }}"></script>
     <script>
@@ -189,6 +189,17 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+
+
+
+
+{{-- dark-mode  --}}
+<script>
+    function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    }
     </script>
 </body>
 
