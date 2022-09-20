@@ -5,7 +5,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-lg-7 margin-tb">
             <div class="float-left">
-                <h2>Add New Product</h2>
+                <h2>Add Movie Detail</h2>
             </div>
             <div class="float-right">
                 <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>

@@ -134,6 +134,7 @@
                 <a href="/comingsoon">Coming Soon</a><br>
                 <a href="/contact">Contact Us</a><br>
                 <a href="/aboutus">About Us</a>
+                
             </div>
 
             <div class="top-middle-footer">

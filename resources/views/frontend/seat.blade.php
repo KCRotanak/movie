@@ -235,18 +235,7 @@
                     movieName: "Tom and Jerry 2021",
                     price: 7
                 },
-                {
-                    movieName: "Master",
-                    price: 5
-                },
-                {
-                    movieName: "Justice League",
-                    price: 4
-                },
-                {
-                    movieName: "Monster",
-                    price: 2
-                },
+ 
             ];
 
             const selectMovieEl = document.getElementById("selectMovie");

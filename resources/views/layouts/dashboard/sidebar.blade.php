@@ -12,7 +12,7 @@
         <li class="nav-item menu-items">
             <a class="nav-link" href="/admin/home">
                 <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
+                    <i class="mdi mdi-view-dashboard"></i>
                 </span>
                 <span class="menu-title">Dashboard</span>
             </a>
@@ -34,8 +34,9 @@
                     <li class="nav-item"> 
                         <a class="nav-link" href="/seats">Seat</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link"
-                            href="/soons">Commingsoon ( {{ $soon }}  )</a></li>
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="/soons">Comingsoon</a></li>
+                           
                 </ul>
             </div>
         </li>
@@ -44,7 +45,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
-                <span class="menu-title">Create Movie ( {{ $product }}  )</span>
+                <span class="menu-title">Create Movie </span>
 
             </a>
         </li>
@@ -61,7 +62,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-email-outline"></i>
                 </span>
-                <span class="menu-title">Contact ( {{ $contact }}  )</span>
+                <span class="menu-title">Contact</span>
             </a>
         </li>
         <li class="nav-item menu-items">
@@ -77,7 +78,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-account-multiple"></i>
                 </span>
-                <span class="menu-title">Users ( {{ $user }}  )</span>
+                <span class="menu-title">Users</span>
             </a>
         </li>
     </ul>

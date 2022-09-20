@@ -12,24 +12,17 @@
         </div>
     </div>
      
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="card " style="width: 25rem; ">
+        <img class="card-img-top" src="/image/{{ $soon->image }}" alt="Card image cap">
+        <div class="card-body">
             <div class="form-group">
                 <strong>Name:</strong>
                 {{ $soon->name }}
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>URL:</strong>
                 {{ $soon->URL }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Image:</strong>
-                <img src="/image/{{ $soon->image }}" width="500px">
-            </div>
-        </div>
-    </div>
+      </div>
 @endsection

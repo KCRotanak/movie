@@ -15,7 +15,7 @@
                         <img src="/profile/avatar/{{ Auth::user()->avatar }}" alt="author-image"
                             class=" img-xs rounded-circle">
                         <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}</p>
-                        <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                        <i class="mdi mdi-menu-down d-none d-sm-block" style="visibility: hidden"></i>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
