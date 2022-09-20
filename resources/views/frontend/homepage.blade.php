@@ -47,7 +47,7 @@
 
                 @foreach ($products as $product)
                     @if ($loop->first || $loop->index === $rows)
-                        <d  v class="slide-content">
+                        <div class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
                                 @endif
                                 <div class="card swiper-slide" onclick="window.location.href='/moviedetail/'+{{ $product->id }}">

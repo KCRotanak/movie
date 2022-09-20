@@ -1,5 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.dash')
 @section('content')
+
+
     <section class="contact-page-section">
         <div class="container">
             <div class="inner-container"style="border-radius:20px;">
@@ -14,7 +16,7 @@
                             </div>
                         </div>
                     </div>
-                
+
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -35,8 +37,9 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Profile Image:</strong>
-                       
-                                    <img src="/profile/avatar/{{ Auth::user()->avatar }}" alt="avatar"width="50px"style="border-radius:50px;">
+
+                                    <img src="/profile/avatar/{{ Auth::user()->avatar }}"
+                                        alt="avatar"width="50px"style="border-radius:50px;">
                                     <input type="file" name="avatar" class="form-control" placeholder="image">
 
                                 </div>
@@ -53,16 +56,16 @@
                                 <div class="form-group">
                                     <strong>email:</strong>
                                     <input type="email" name="email"
-                                        value="{{ old('email') ? old('email') : Auth::user()->email }}" class="form-control"
-                                        placeholder="Mail">
+                                        value="{{ old('email') ? old('email') : Auth::user()->email }}"
+                                        class="form-control" placeholder="Mail">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Phone number:</strong>
                                     <input type="text" name="phone"
-                                        value="{{ old('phone') ? old('phone') : Auth::user()->phone }}" class="form-control"
-                                        placeholder="url">
+                                        value="{{ old('phone') ? old('phone') : Auth::user()->phone }}"
+                                        class="form-control" placeholder="url">
                                 </div>
                             </div>
 

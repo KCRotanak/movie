@@ -1,3 +1,4 @@
+
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <a class="sidebar-brand brand-logo" href="/"><img src="../img/logo.png" style="width: auto; height: 50px" alt="logo" /></a>
@@ -27,12 +28,14 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="/theaters">Theater</a>
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="/theaters">Theater</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="/seats">Seat</a>
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="/seats">Seat</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link"
-                            href="/soons">Commingsoon</a></li>
+                            href="/soons">Commingsoon ( {{ $soon }}  )</a></li>
                 </ul>
             </div>
         </li>
@@ -41,7 +44,8 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
-                <span class="menu-title">CreateMovie</span>
+                <span class="menu-title">Create Movie ( {{ $product }}  )</span>
+
             </a>
         </li>
         <li class="nav-item menu-items">
@@ -57,7 +61,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-email-outline"></i>
                 </span>
-                <span class="menu-title">Contact</span>
+                <span class="menu-title">Contact ( {{ $contact }}  )</span>
             </a>
         </li>
         <li class="nav-item menu-items">
@@ -73,7 +77,7 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-account-multiple"></i>
                 </span>
-                <span class="menu-title">Users</span>
+                <span class="menu-title">Users ( {{ $user }}  )</span>
             </a>
         </li>
     </ul>

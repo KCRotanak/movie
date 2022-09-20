@@ -17,10 +17,13 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/loading.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/booking.css') }} ">
-    <link rel="stylesheet" href=" {{ asset('/css/frontcss/style.css') }} ">
+    {{-- <link rel="stylesheet" href=" {{ asset('/css/frontcss/style.css') }} "> --}}
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href="/lib/lity/lity.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     {{-- swiper css --}}
     <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">
@@ -29,6 +32,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
     <!-- CSS bootstrap 5.2 only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+        {{-- link icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
@@ -39,21 +44,24 @@
     <script scr=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script scr=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
     <script scr=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    {{-- link icon --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <style>
         @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
-        /* .active {
-            color: #d3b74b;
-            
-        } */
     </style>
 </head>
 
-<body style="background-color: #393939">
+<body>
+  
     {{-- --------------- --}}
     <header>
+          {{-- loading --}}
+    <div class="loader">
+        <div class="blank"></div>
+        <div class="loader-content">
+            <img src="https://i.pinimg.com/originals/3d/6a/a9/3d6aa9082f3c9e285df9970dc7b762ac.gif" alt="Loader"
+                class="loader-loader" />
+        </div>
+    </div>
         <div class="header-top">
             <div class="bar-top-left">
                 <img src="../img/logo.png"alt="logo" style="cursor: pointer" onclick="window.location.href='/'">
@@ -126,8 +134,6 @@
 
     <div class="wrapper-body">
         {{-- <main> --}}
-
-
         @yield('content')
 
         {{-- </main> --}}
@@ -180,15 +186,22 @@
           $(this).addClass("active").siblings().removeClass("active");
         });
       });
-    </script>
+        </script>
+    
     {{-- js popup video --}}
-    {{-- <script>
+    <script>
         $(document).on("click", "#cust_btn", function() {
 
-            $("#myModal").modal("toggle");
+        function lightbox_open() {
+            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+            window.scrollTo(0, 0);
+            document.getElementById('light').style.display = 'block';
+            document.getElementById('fade').style.display = 'block';
+            lightBoxVideo.play();
+        }
 
         })
-    </script> --}}
+    </script>
     <script>
         window.document.onkeydown = function(e) {
             if (!e) {

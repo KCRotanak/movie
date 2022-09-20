@@ -1,17 +1,122 @@
 @extends('layouts.dash')
 
 @section('content')
-<head>
     <style>
-    body {
-      background-color: #393939;
-    }
-    .card{
-        background-color: rgb(200, 200, 200);
-    }
+
+
+        .container-fluid {
+            margin: 1em auto !important;
+        }
+
+        .main-content {
+            width: 50%;
+            border-radius: 20px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+            margin: 5em auto !important;
+            display: flex;
+        }
+
+        .btn {
+            transition: all 0.5s ease;
+            width: 40%;
+            border-radius: 10px;
+            color: #6a6a6a;
+            font-weight: 600;
+            background-color: #fff;
+            border: 1px solid #6a6a6a;
+            margin-top: 1.5em;
+            margin-bottom: 1em;
+            margin-left: 11em !important;
+        }
     </style>
-    </head>
-    <div class="container ">
+    <!-- Main Content -->
+
+    <div class="container-fluid">
+        <div class="row main-content bg-success text-center">
+            <div class="col-md-4 text-center company__info">
+                <span class="company__logo">
+                    <h2><span class="fa fa-android"></span></h2>
+                </span>
+                <img src="{{ asset('img/logo.png') }}" alt="">
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2>Register Form</h2>
+                    </div>
+                    <div class="row">
+                        <form control="" class="form-group" method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <div class="row">
+                                <i class="mdi-email-outline"></i>
+                                <input id="name" type="text" class="form__input @error('name') is-invalid @enderror"
+                                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                    placeholder="Username">
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="row">
+                                <input id="phone" type="text"
+                                    class="form__input @error('phone') is-invalid @enderror" name="phone"
+                                    value="{{ old('phone') }}" required autocomplete="phone" autofocus
+                                    placeholder="Phone Number">
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="row">
+                                <!-- <span class="fa fa-lock"></span> -->
+                                <input id="email" type="email"
+                                    class="form__input @error('email') is-invalid @enderror" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="row">
+                                <!-- <span class="fa fa-lock"></span> -->
+                                <input id="password" type="password"
+                                    class="form__input @error('password') is-invalid @enderror" name="password" required
+                                    autocomplete="new-password" placeholder="Password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="row">
+                                <input id="password-confirm" type="password" class="form__input"
+                                    name="password_confirmation" required autocomplete="new-password"
+                                    placeholder="Confirm Password">
+                            </div>
+
+                            <div class="row">
+                                <button type="submit" class="btn">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <p>Already have account? <a href="{{ route('login') }}">login Here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="container ">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -22,7 +127,8 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -108,5 +214,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

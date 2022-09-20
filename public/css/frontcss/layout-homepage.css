@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Coda&display=swap");
-
+body {
+    background-color: #393939 !important;
+    /* color: #393939; */
+}
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +32,7 @@ header .header-top {
 header .header-top .bar-top-left {
     width: 15%;
     height: 100%;
-    background-color: #302b2b;
+    /* background-color: #302b2b; */
 }
 
 header .header-top .bar-top-left img {
@@ -41,7 +44,7 @@ header .header-top .bar-top-left img {
 header .header-top .bar-top-right {
     width: 15%;
     height: 100%;
-    background-color: #302b2b;
+    /* background-color: #302b2b; */
     margin-left: 70%;
     text-align: center;
     display: flex;
@@ -57,6 +60,7 @@ header .header-top .bar-top-right {
     color: white;
     margin-left: 30px;
     font-size: 18px;
+    text-decoration: none;
 }
 
 .bar-top-right .button-register {
@@ -68,26 +72,27 @@ header .header-top .bar-top-right {
     color: black;
     font-size: 18px;
     margin-left: 20px;
+    text-decoration: none;
 }
 
 .bar-top-right .dropdown {
-    padding: 10px 0px 0px 50px;
+    padding: 20px 0px 0px 50px;
 }
-#navbarDropdown {
+.bar-top-right .dropdown > a:focus,
+.bar-top-right .dropdown > a:hover{
+        text-decoration: none;
+        color: #d3b74b !important;
 }
+
 .bar-top-right .nav-link {
-    background-color: #515151;
+    /* background-color: #515151; */
     border-radius: 5px;      
     position:fixed; 
     margin-left: 30px;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 10px 0px 20px;
     font-size: 18px;
     position: relative;
-    padding: 5px 10px 0px 10px;
-}
-
-.bar-top-right .nav-link:hover {
-    /* background-color: grey; */
+    padding: 5px 10px 0px 0px;
 }
 
 /* dropdown menu */
@@ -111,10 +116,15 @@ header .header-top .bar-top-right {
     font-size: 18px;
 }
 
+.bar-top-right .button-login:active,
+.bar-top-right .button-register:active {
+    box-shadow: 0 3px #929292;
+    transform: translateY(2px);
+}
 .bar-top-right .button-login:hover,
-    .bar-top-right .button-register:hover
-    /* .bar-top-right .dropdown:hover  */ {
-    background-color: rgb(0, 130, 125);
+.bar-top-right .button-register:hover {
+    background-color:  #6a6a6a;
+    color: white;
 }
 .bar-top-right a,
 .button {
@@ -150,22 +160,19 @@ header .header-bottom {
     padding-right: 150px;
 }
 .header-bottom a {
+    /* margin-left: 11vh;
+    margin-right: 14vh; */
     color: white;
     text-decoration: none;
 }
 .header-bottom > a.active {
-    /* background-color: red; */
     color: #d3b74b !important;
+    text-decoration: none;
 }
 .header-bottom a:hover {
     color: #d3b74b;
-    /* border-bottom:3px #FFF solid; */
+    text-decoration: none;
 }
-/* .header-bottom a:active {
-    background-color:#dfe0e5;
-    overflow:hidden;    
-    color: black;
-} */
 /* layout */
 .wrapper-body {
     width: 100%;
@@ -208,13 +215,7 @@ header .header-bottom {
 
 
 .first-slide img,
-.second-slide img,
-.third-slide img,
-.forth-slide img,
-.fifth-slide img,
-.sixth-slide img,
-.seventh-slide img,
-.eigth-slide img {
+.second-slide img {
 
     width: 100%;
     height: 100%;
@@ -244,8 +245,8 @@ header .header-bottom {
     background-color: #515151;
 }
 .showing .btn-showing a:hover {
-    color: black;
-    background-color: rgb(0, 130, 125);
+    color: #d3b74b;
+    background-color:  #6a6a6a;
 }
 .card-showing {
     width: 100%;
@@ -357,7 +358,6 @@ header .header-bottom {
     display: table;
     clear: both;
 }
-
 /* Style footer */
 footer * {
     font-family: "Coda", cursive;
@@ -446,7 +446,7 @@ footer .bottom-footer a:hover {
 @media only screen and (max-width: 425px) {
     .wrapper-body {
         width: 100%;
-        height: 80vh;  
+        height: 150vh;  
     }
     header .header-top .bar-top-right {
         width: 15%;
