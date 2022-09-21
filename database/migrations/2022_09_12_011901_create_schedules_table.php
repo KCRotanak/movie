@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('productID');
             $table->unsignedBigInteger('theaterID');
-            
+            $table->date('date');
             $table->foreign('productID')->references('id')->on('products');
             $table->foreign('theaterID')->references('id')->on('theaters');
+            $table->float('price');
             $table->timestamps();
         });
     }

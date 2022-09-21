@@ -92,6 +92,9 @@ class TheaterController extends Controller
      */
     public function destroy(Theater $theater)
     {
-        //
+        $theater->delete();
+     
+        return redirect()->route('theaters.index')
+                        ->with('success','Theater deleted successfully');
     }
 }

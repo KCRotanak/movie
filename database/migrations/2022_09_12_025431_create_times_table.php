@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('times', function (Blueprint $table) {
             $table->id();
             $table->time('time');
+
+
+            $table->unsignedBigInteger('scheduleID');
+            
+            $table->foreign('scheduleID')->references('id')->on('schedules');
             $table->timestamps();
         });
     }

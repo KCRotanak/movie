@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use App\Models\Product;
+use App\Models\Schedule;
+use App\Models\Time;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use GuzzleHttp\Psr7\Request;
 
 class MovieController extends Controller
 {
@@ -17,7 +20,9 @@ class MovieController extends Controller
     public function index()
     {
         $products = Product::get();
-        return view('frontend.moviedetail', compact('products'));
+        $schedules = Schedule::get();
+        $times = Time::get();
+        return view('frontend.moviedetail', compact('products','schedules','times'));
     }
 
     /**
@@ -49,10 +54,18 @@ class MovieController extends Controller
      */
     public function show($id)
     {
+        // dd($id);
+        
+        $schedules = Schedule::select()
+        ->where('productID', $id)
+        ->get();
+
         $product = Product::find($id);
+
+        $times=Time::get();
         
         $product = $product;
-        return view('frontend.moviedetail', compact('product'));
+        return view('frontend.moviedetail', compact('product','times','schedules'));
     }
 
     /**

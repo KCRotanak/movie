@@ -12,6 +12,7 @@ class Product extends Model
     protected $fillable = [
         'name','lang','duration','genre','url','date', 'image'
     ];
+
     public function schedule()
     {
         return $this->belongsTo(Schedule::class);

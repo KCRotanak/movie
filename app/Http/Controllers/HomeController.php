@@ -7,6 +7,7 @@ use App\Models\Theater;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\Slide;
+
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
   
