@@ -17,6 +17,7 @@ class SoonfrontController extends Controller
      */
     public function index()
     {
+        // dd($soons);
         
         $soons = Soon::all();
         $slideOnes = Slide::select()

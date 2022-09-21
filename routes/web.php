@@ -32,10 +32,10 @@ use App\Models\Slide;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/booking', [BookingController::class, 'index']);
-Route::get('/comingsoon', [SoonfrontController::class, 'index']);
-Route::get('/showtime', [ShowtimeController::class, 'index']);
+Route::get('/comingsoon', [SoonfrontController::class, 'index'])->name('comingsoon');
+Route::get('/showtime', [ShowtimeController::class, 'index'])->name('showtime');
 Route::get('/seat', [SeatfrontController::class, 'index']);
 Route::get('/aboutus', function(){
     return view('frontend.aboutus');

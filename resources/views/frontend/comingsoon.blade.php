@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
-
-    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2000" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2500" data-ride="carousel">
         
+
         <div class="carousel-inner" role="listbox">
-            <ol class="carousel-indicators">
+            {{-- <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
+            </ol> --}}
             
             
             @foreach ($slideOnes as $slideOne)
@@ -41,10 +41,9 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        <div class="coming">
 
-        <div class="showing">
-
-            <div class="btn-showing">
+            <div class="btn-coming">
                 <ul>
                     <a href="/"> Now showing </a>
                     <a href="{{ asset('/comingsoon') }}"> Coming soon </a>
@@ -53,9 +52,9 @@
 
             {{-- Old swiper --}}
             <div class="card-coming swiper">
-                {{-- swiper --}}
+                {{-- =swiper --}}
                 @php
-                    $countSoon = $soons->count();   
+                    $countSoon = $soons->count();
                     $rows = $countSoon / 2;
                 @endphp
 
@@ -63,31 +62,38 @@
                     @if ($loop->first || $loop->index === $rows)
                         <div class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
-                    @endif
-                    <div class="card swiper-slide" onclick="window.location.href='/soondetail/'+{{ $soon->id }}">
-                        <div class="image-content">
-                            <div class="card-image">
-                                <img src="{{ asset('../image/' . $soon->image) }}" alt="" class="card-img">
+                                @endif
+                                <div class="card swiper-slide" onclick="window.location.href='/soondetail/'+{{ $soon->id }}">
+                                    <div class="image-content">
+                                        <div class="card-image">
+                                            <img src="{{ asset('../image/' . $soon->image) }}" alt="" class="card-img">
+                                        </div>
+                                    </div>
+                            
+                                    <div class="card-content">
+
+                                        <h4>{{ $soon->name }}</h4>
+
+                                    </div>
+                                </div>
+
+                                @if ($loop->index === $rows - 1 || $loop->last)
+
                             </div>
                         </div>
-                        <div class="card-content">
-
-                            <h4>{{ $soon->name }}</h4>
-
-                        </div>
-                    </div>
-
-                    @if ($loop->index === $rows - 1 || $loop->last)
+                    @endif
+                @endforeach
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
-        @endif
-        @endforeach
-        <div class="swiper-button-next swiper-navBtn"></div>
-        <div class="swiper-button-prev swiper-navBtn"></div>
-        <div class="swiper-pagination"></div>
-    </div>
-    </div>
-    </div>
+     </div>
+  
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 
     <!-- /.carousel -->
     <script>

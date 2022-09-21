@@ -1,5 +1,5 @@
-{{-- @extends('layouts.app')
-@section('content') --}}
+@extends('layouts.app')
+@section('content')
 
 <div class="recieve">
     <div class="book bookleft">
@@ -32,7 +32,7 @@
     </div>
 
 </div>
-<style>
+{{-- <style>
   .recieve {
     width: 27em;
     margin: 3em auto;
@@ -156,5 +156,5 @@
     box-shadow: 1px 0 0 1px #343434, 5px 0 0 1px #343434, 10px 0 0 1px #343434, 11px 0 0 1px #343434, 15px 0 0 1px #343434, 18px 0 0 1px #343434, 22px 0 0 1px #343434, 23px 0 0 1px #343434, 26px 0 0 1px #343434, 30px 0 0 1px #343434, 35px 0 0 1px #343434, 37px 0 0 1px #343434, 41px 0 0 1px #343434, 44px 0 0 1px #343434, 47px 0 0 1px #343434, 51px 0 0 1px #343434, 56px 0 0 1px #343434, 59px 0 0 1px #343434, 64px 0 0 1px #343434, 68px 0 0 1px #343434, 72px 0 0 1px #343434, 74px 0 0 1px #343434, 77px 0 0 1px #343434, 81px 0 0 1px #343434;
   }
   
-</style>
-{{-- @endsection --}}
+</style> --}}
+@endsection

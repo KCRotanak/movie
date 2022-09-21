@@ -31,7 +31,7 @@
             <select name="theaterID">
                 <option selected value="Theater">theater</option>
                 @foreach ($theaters as $theater)
-                    <option value="{{ $theater->id }}">{{ $theater->theater }}</option>
+                    <option value="{{ $theater->id }}">{{ $theater->name }}</option>
                 @endforeach
             </select>
 

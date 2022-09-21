@@ -27,7 +27,7 @@
         @foreach ($schedules as $schedule)         
         <tr>
           <td>{{ ++$i }}</td>
-            <td>{{ $schedule->theater->theater}}</td>
+            <td>{{ $schedule->theater->name}}</td>
             <td>{{ $schedule->product->name}}</td>
             <td>
             <form action="{{ route('schedules.destroy',$schedule->id) }}" method="POST">

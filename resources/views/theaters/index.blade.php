@@ -3,10 +3,6 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <a class="btn btn-info" href="/admin/home">back</a>
-
-            </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('theaters.create') }}"> Create movie</a>
             </div>
@@ -22,13 +18,13 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Time</th>
+            <th>Name</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($theaters as $theater)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $theater->time }}</td>
+            <td>{{ $theater->name }}</td>
             <td>
                 <form action="{{ route('theaters.destroy',$theater->id) }}" method="POST">
      

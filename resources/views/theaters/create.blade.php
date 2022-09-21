@@ -22,9 +22,8 @@
         </div>
     @endif
 
-    <form action="{{ route('theaters.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('theaters.store') }}" method="POST">
         @csrf
-
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -32,11 +31,9 @@
                     <input type="text" name="name" class="form-control" placeholder="Theater name">
                 </div>
             </div>
-
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-
     </form>
 @endsection

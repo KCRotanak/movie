@@ -9,7 +9,7 @@ class Schedule extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'movieID, theaterID, times'
+        'movieID, theaterID'
     ];
     public function product(){
         return $this->hasMany(Product::class);

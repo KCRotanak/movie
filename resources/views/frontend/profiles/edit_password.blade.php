@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dash')
 
     @section('content')
     <section class="contact-page-section">
@@ -108,3 +108,5 @@
     </script>
     <!-- END SECTION USER PROFILE -->
 @endsection
+
+

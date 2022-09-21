@@ -23,8 +23,9 @@ class ProfileController extends Controller
 
     public function update_profile(Request $request)
     {
-
         $user = User::all();
+        // $user = User::find($id);
+    
         $request->validate([
             'name' => 'required|min:2|max:100',
             'email' => 'required|min:2|max:100',

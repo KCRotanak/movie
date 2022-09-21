@@ -1,21 +1,52 @@
-@extends('layouts.app')
+@extends('layouts.dash')
 
 @section('content')
-<style>
-    .cardreset{
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-    }
-    .card-body{
-        
-        padding: 30px 25px 25px 550px;
- 
-        background-color:#fff; 
-    }
-</style>
-<div class="cardreset">
+
+
+<div class="container-fluid">
+    <div class="row main-content bg-success text-center">
+        <div class="col-md-4 text-center company__info">
+            <span class="company__logo">
+                <h2><span class="fa fa-android"></span></h2>
+            </span>
+            <img src="{{ asset('img/logo.png') }}" alt="">
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2>Reset Password</h2>
+                </div>
+                <div class="row">
+                    <p>Please enter your email address below and we will send you information to change your password.</p>
+                    <label class="label-default" for="un">Email Address</label>
+                    <form control="" class="form-group" method="POST"  action="{{ route('password.email') }}">
+                        @csrf
+                        <div class="row">
+                            <input id="email" type="email"
+                                class="form__input @error('email') is-invalid @enderror" name="email"
+                                value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="row">
+                          
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Send Password Reset Link') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- <div class="cardreset">
     <div class="card-body ">
         @if (session('status'))
             <div class="alert alert-success" role="alert">
@@ -50,5 +81,5 @@
 
         </form>
     </div>
-</div>
+</div> --}}
 @endsection
