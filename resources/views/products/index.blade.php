@@ -25,7 +25,6 @@
                 <th>Duration</th>
                 <th>Genre</th>
                 <th>Date</th>
-                <th>URL</th>
                 <th width="280px">Action</th>
             </tr>
             @foreach ($products as $product)
@@ -37,7 +36,6 @@
                     <td>{{ $product->duration }}</td>
                     <td>{{ $product->genre }}</td>
                     <td>{{ $product->date }}</td>
-                    <td>{{ $product->URL }}</td>
                     <td>
                         <form action="{{ route('products.destroy', $product->id) }}" method="POST">
 

@@ -1,7 +1,106 @@
 @extends('layouts.dash')
 
-    @section('content')
-    <section class="contact-page-section">
+@section('content')
+    <div class="container-fluid">
+        <div class="row main-content bg-success text-start">
+            <div class="col-md-4 text-center company__info">
+                <span class="company__logo">
+                    <h2><span class="fa fa-android"></span></h2>
+                </span>
+                <img src="{{ asset('img/logo.png') }}" alt="">
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12 login_form">
+                <div class="container-fluid">
+                    <div class="row text-center">
+                        <h2>Edit Password</h2>
+                    </div>
+                    <div class="row">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{ route('update-password') }}" method="POST">
+                            @csrf
+                        
+                            <div class="row">
+                                <strong>Current Password:</strong>
+                                <input id="password" type="password" name="old_password"
+                                    class="form__input @error('old_password') is-invalid @enderror"
+                                    required autocomplete="old_password" autofocus
+                                    placeholder="Current Password">
+                                {{-- <input id="email" type="email"
+                                    class="form__input @error('email') is-invalid @enderror" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email"> --}}
+
+                                @error('old_password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="row">
+                                <strong>New Password:</strong>
+                                <input id="password" type="password" name="new_password"
+                                    class="form__input @error('new_password') is-invalid @enderror"
+                                     required autocomplete="new_password" autofocus
+                                    placeholder="New Password">
+                                {{-- <input id="email" type="email"
+                                class="form__input @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email"> --}}
+
+                                @error('new_password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="row">
+                                <strong>Confirm Password:</strong>
+                                <input id="password" type="password" name="new_password_confirmation"
+                                    class="form__input @error('new_password_confirmation') is-invalid @enderror"
+                                    required
+                                    autocomplete="new_password_confirmation" autofocus placeholder="Confirm Password">
+                                {{-- <input id="email" type="email"
+                                class="form__input @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email"> --}}
+
+                                @error('new_password_confirmation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <button type="submit" name="sendmessage"class="btn">Save</button>
+                                {{-- <button type="submit" class="btn">
+                                    {{ __('Login') }}
+                                </button> --}}
+
+                                {{-- @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif --}}
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row text-center">
+                        <p>Do you want to edit profile? <a href="{{ asset('/editprofile') }}">Edit Profile Here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <section class="contact-page-section">
         <div class="container">
             <div class="inner-container"style="border-radius:20px;">
                 <div class="row clearfix p-3 mb-2 bg-warning">
@@ -15,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                
+
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -36,24 +135,21 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Password:</strong>
-                                    <input type="password" name="old_password"
-                                     class="form-control"
-                                    placeholder="old_password">
+                                    <input type="password" name="old_password" class="form-control"
+                                        placeholder="old_password">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>New Password:</strong>
-                                    <input type="password" name="new_password"
-                                        class="form-control"
+                                    <input type="password" name="new_password" class="form-control"
                                         placeholder="new_password">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>New Password Confirmation:</strong>
-                                    <input type="password" name="new_password_confirmation"
-                                        class="form-control"
+                                    <input type="password" name="new_password_confirmation" class="form-control"
                                         placeholder="new_password_confirmation">
                                 </div>
                             </div>
@@ -67,7 +163,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <script>
         function showPassword() {
@@ -76,7 +172,7 @@
                 x.type = "text";
             } else {
                 x.type = "password";
-              
+
             }
 
             var y = document.getElementById("new_password");
@@ -84,7 +180,7 @@
                 y.type = "text";
             } else {
                 y.type = "password";
-          
+
             }
 
             var z = document.getElementById("new_password_confirmation");
@@ -95,6 +191,7 @@
             }
 
         }
+
         function showPassword(targetID) {
             var x = document.getElementById(targetID);
 
@@ -102,11 +199,9 @@
                 x.type = "text";
             } else {
                 x.type = "password";
-        
+
             }
-        }   
+        }
     </script>
     <!-- END SECTION USER PROFILE -->
 @endsection
-
-

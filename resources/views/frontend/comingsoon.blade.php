@@ -41,11 +41,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-   
-
-        <!-- /.carousel -->
-
-
         <div class="coming">
 
             <div class="btn-coming">

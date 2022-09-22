@@ -2,6 +2,8 @@
 
 @section('content')
 
+@section('content')
+
 <div class="container-fluid">
     <div class="row main-content bg-success text-center">
         <div class="col-md-4 text-center company__info">

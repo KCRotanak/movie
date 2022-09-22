@@ -12,7 +12,7 @@
         <li class="nav-item menu-items">
             <a class="nav-link" href="/admin/home">
                 <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
+                    <i class="mdi mdi-view-dashboard"></i>
                 </span>
                 <span class="menu-title">Dashboard</span>
             </a>

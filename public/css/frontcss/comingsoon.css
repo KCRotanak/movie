@@ -41,19 +41,19 @@
   margin-top: 17px;
 }
 
-.card:hover {
+.card-coming .card:hover {
   -webkit-transform: scale(1);
   transform: scale(0.92);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-wrapper {
+.card-coming .card-wrapper {
   display: flex;
   
 }
 .card-coming .card{
   width: 25%;
-  height:50%;
+  height:100%;
   transition: 0.3s ease-in-out;
   cursor: pointer;
 

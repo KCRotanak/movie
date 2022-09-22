@@ -69,7 +69,7 @@
             </div>
 
 
-            <div class="bar-top-right ">
+            <div class="bar-top-right">
                 @guest
                     @if (Route::has('login'))
                         <a class="button-login" href="{{ route('login') }}">{{ 'Login' }}</a>
@@ -83,7 +83,7 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img src="/profile/avatar/{{ Auth::user()->avatar }}" alt="author-image"
                                 class="img-xs rounded-circler" style="border-radius: 50%; width: 35px; height: 35px">&ensp;
-                            <span class="mb-0 d-sm-block navbar-profile-name">{{ auth()->user()->name }}
+                            <span class="mb-0 d-sm navbar-profile-name">{{ auth()->user()->name }}
                             </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
@@ -153,6 +153,7 @@
                 <a href="/comingsoon">Coming Soon</a><br>
                 <a href="/contact">Contact Us</a><br>
                 <a href="/aboutus">About Us</a>
+                
             </div>
 
             <div class="top-middle-footer">

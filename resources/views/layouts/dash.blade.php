@@ -49,6 +49,14 @@
             display: flex;
         }
 
+        header .header-top .bar-top-right {
+            width: 15%;
+            height: 100%;
+            margin-left: 70%;
+            text-align: center;
+            /* display: flex; */
+        }
+
         header .header-bottom {
 
             height: 0 !important;
@@ -60,7 +68,7 @@
         }
 
         .container-fluid {
-            margin: 4em auto;
+            margin: 2em auto;
         }
 
         .main-content {
@@ -127,11 +135,13 @@
             border: 0px solid transparent;
             border-radius: 0;
             border-bottom: 1px solid #aaa;
-            padding: 1em 0.5em 0.5em;
-            padding-left: 2em;
+            padding: 0.5em 0.5em 0.5em;
+            padding-left: 0.9em;
             outline: none;
-            margin: 1.5em auto;
+            margin: 0em auto;
             transition: all 0.5s ease;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
 
         .form__input:focus {
@@ -164,6 +174,43 @@
             box-shadow: 0 3px #6a6a6a;
             transform: translateY(4px);
         }
+
+        .btn_edit {
+            margin-left: 30px;
+            color: #6a6a6a;
+            transition: all 0.5s ease;
+            padding: 0.375rem 0.75rem;
+            background-color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            width: 100%;
+            font-weight: 600;
+            border: 1px solid #6a6a6a;
+            display: inline-block;
+            line-height: 1.5;
+            vertical-align: middle;
+            text-align: center;
+            user-select: none;
+            font-size: 1rem;
+        }
+
+        .btn_edit:hover {
+            background-color: #6a6a6a;
+            color: white;
+        }
+        .nav-link > button{
+            display: none;
+
+        }
+        /* edit_profile */
+        .contact-page-section .container{
+            background-color: #6a6a6a;
+            border-radius: 10px;
+        }
+        .profile-image-edit {
+            
+        }
+        
     </style>
 </head>
 
@@ -175,7 +222,7 @@
             </div>
 
 
-            <div class="bar-top-right ">
+            <div class="bar-top-right">
                 @guest
                     @if (Route::has('login'))
                         <a class="button-login" href="{{ route('login') }}">{{ 'Login' }}</a>
@@ -189,7 +236,7 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img src="/profile/avatar/{{ Auth::user()->avatar }}" alt="author-image"
                                 class="img-xs rounded-circler" style="border-radius: 50%; width: 35px; height: 35px">&ensp;
-                            <span class="mb-0 d-sm-block navbar-profile-name">{{ auth()->user()->name }}
+                            <span class="mb-0 d-sm navbar-profile-name">{{ auth()->user()->name }}
                             </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
