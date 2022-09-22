@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Schedule;
+use App\Models\Time;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -11,10 +13,14 @@ class SeatfrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $product = Product::all();
-        return view('frontend.seat', compact('product'));  
+    public function index(Request $request)
+    {   
+        $id = $request->id;
+
+        $tests = Time::select()
+        ->where('id', $id)
+        ->get();
+        return view('frontend.seat', compact('tests'));  
     }
 
     /**

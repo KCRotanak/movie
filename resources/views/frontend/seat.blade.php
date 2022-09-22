@@ -1,19 +1,22 @@
 @extends('layouts.app')
 @section('content')
     <div class="movie-descript">
-        <img src="{{ asset('/image/' .$product->image) }}" alt="">
-        <div class="movie-letter">
+        @foreach($tests as $time)
 
-            <p><b>{{$product->name}}</b></p>
+        <img src="{{ asset('/image/' . $time->schedule->product->image) }}" alt="">
+
+        <div class="movie-letter">
+            <p><b>{{$time->schedule->product->name}}</b></p>
             <i class="bx bxs-calendar"></i>
-            <span>{{$product->date}}</span><br>
+            <span>{{$time->schedule->product->date}}</span><br>
             <i class="bx bxs-time"></i>
-            <span>{{$product->duration}}</span><br>
+            <span>{{$time->schedule->product->duration}}</span><br>
             <i class="bx bx-movie-play"></i>
-            <span>{{$product->genre}}</span><br>
+            <span>{{$time->schedule->product->genre}}</span><br>
             <i class="bx bxs-megaphone"></i>
-            <span>{{$product->lang}}</span>
+            <span>{{$time->schedule->product->lang}}</span>
         </div>
+        @endforeach
 
     </div>
     <div class="movie-seat">
@@ -26,10 +29,6 @@
                             <ul>
                                 <li>
                                     <div class="seat legend"></div>
-                                    <small>Available</small>
-                                </li>
-                                <li>
-                                    <div class="seatvip legend"></div>
                                     <small>Available</small>
                                 </li>
                                 <li>
@@ -51,7 +50,7 @@
                                 <div class="seatRowCont1 seatRowCont">
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
+                                        <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -62,7 +61,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
+                                        <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -75,18 +74,7 @@
                                 <div class="seatRowCont2 seatRowCont">
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
                                         <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                        <div class="seat"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="seat"></div>
-                                        <div class="seat occupied"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -97,7 +85,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
+                                        <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -108,7 +96,18 @@
                                     </div>
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
+                                        <div class="seat"></div>
+                                        <div class="seat"></div>
+                                        <div class="seat"></div>
+                                        <div class="seat"></div>
+                                        <div class="seat"></div>
+                                        <div class="seat"></div>
+                                        <div class="seat"></div>
+                                        <div class="seat"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="seat"></div>
+                                        <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -121,7 +120,7 @@
                                 <div class="seatRowCont3 seatRowCont">
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
+                                        <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -132,7 +131,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
+                                        <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -145,7 +144,7 @@
                                 <div class="seatRowCont4 seatRowCont">
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
+                                        <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -156,7 +155,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="seat"></div>
-                                        <div class="seat occupied"></div>
+                                        <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
                                         <div class="seat"></div>
@@ -180,22 +179,23 @@
                                 <div class="selectMovie">
                                     <label>
                                         <p>Select Your Movie</p>
-                                        <select id="selectMovie"></select>
+                                        
                                     </label>
                                 </div>
+                                <div id="selectMovie">
                                 <div class="movieName">
                                     <p>MOVIE NAME</p>
-                                    <h1 id="movieName">Tom and Jerry</h1>
+                                    <h1 id="movieName">{{$time->schedule->product->name}}</h1>
                                 </div>
                                 <div class="moviePrice">
                                     <p>MOVIE PRICE</p>
-                                    <h1 id="moviePrice">$ 7</h1>
+                                    <h1 id="moviePrice">{{$time->schedule->price}} $</h1>
                                 </div>
                                 <div class="dateCont">
                                     <p>Date</p>
-                                    <p class="dateOn">Wed , 31th march</p>
-
+                                    <p class="dateOn">{{$time->schedule->date}}</p>
                                 </div>
+                            </div>
                             </div>
                         </div>
                         <div class="rightBottomCont">
@@ -235,7 +235,18 @@
                     movieName: "Tom and Jerry 2021",
                     price: 7
                 },
- 
+                {
+                    movieName: "Master",
+                    price: 5
+                },
+                {
+                    movieName: "Justice League",
+                    price: 4
+                },
+                {
+                    movieName: "Monster",
+                    price: 2
+                },
             ];
 
             const selectMovieEl = document.getElementById("selectMovie");

@@ -43,12 +43,9 @@ class TheaterController extends Controller
             'name' => 'required',
             
         ]);
-        // dd($request);
-        // Theater::create($request->all());
-        $theater = new Theater();
-        $theater->name = $request->name;
-        $theater->save();
-
+  
+        Theater::create($request->all());
+     
         return redirect()->route('theaters.index')
                         ->with('success','Theater created successfully.');
     }

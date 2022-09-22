@@ -9,15 +9,21 @@ class Schedule extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'movieID, theaterID'
+        'productID', 
+        'theaterID',
+        'price',
+        'date',
     ];
+
     public function product(){
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class, 'productID');
     }
+
     public function theater(){
-        return $this->hasMany(Theater::class);
+        return $this->belongsTo(Theater::class, 'theaterID');
     }
+
     public function time(){
-        return $this->hasMany(Time::class);
+        return $this->hasMany(Time::class,'scheduleID');
     }
 }

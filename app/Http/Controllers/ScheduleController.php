@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Schedule;
 use App\Models\Theater;
 use App\Models\Product;
+use App\Models\Time;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
@@ -30,8 +31,8 @@ class ScheduleController extends Controller
     {
         $theaters = Theater::get();
         $products = Product::get();
-        
-        return view('schedules.create',compact('theaters','products'));
+        $times = Time::get();
+        return view('schedules.create',compact('theaters','products','times'));
     }
 
     /**
@@ -42,13 +43,30 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
+
         $request->validate([
             'productID' => 'required',
             'theaterID' => 'required',
+            'date' => 'required',
         ]);
-  
-        Schedule::create($request->all());
-     
+        // dd($request->moreFields);
+        $saved = Schedule::create($request->all());
+        if ($saved) {
+            if ($request->moreFields) {
+                foreach ($request->moreFields as $time) {
+                    Time::create([
+                        'scheduleID' => $saved->id,
+                        'time' => $time,
+                    ]);
+                }
+            }
+        }
+
+
+
+
         return redirect()->route('schedules.index')
                         ->with('success','schedule created successfully.');
     }
@@ -59,9 +77,9 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Schedule $schedule)
     {
-        return view('schedules.show');
+        return view('schedules.show',compact('schedule'));
     }
 
     /**

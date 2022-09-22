@@ -11,19 +11,20 @@
             </div>
         </div>
     </div>
-     
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+    
+
+    <div class="card " style="width: 30rem; border-radius: 30px">
+        <strong>Movie_ID:</strong>
+        <img class="card-img-top" src="/image/{{$schedule->product->image}}" alt="" style="border-radius: 30px 30px 0px 0px">
+        <div class="card-body">
             <div class="form-group">
-                <strong>Movie_ID:</strong>
-                {{ $schedule->movie_id }}
+                Movie name:
+                <strong> {{ $schedule->product->name }}</strong>
+            </div>
+            <div class="form-group">
+               Theater name:
+                <strong> {{ $schedule->theater->name }}</strong>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Theater_ID:</strong>
-                {{ $schedule->theater_id }}
-            </div>
-        </div>
-    </div>
+      </div>
 @endsection

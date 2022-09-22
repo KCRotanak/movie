@@ -18,17 +18,18 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Theater_ID</th>
             <th>Movie_ID</th>
-
+            <th>Theater_ID</th>
+            <th>price</th>
             <th width="280px">Action</th>
         </tr>
 
         @foreach ($schedules as $schedule)         
         <tr>
           <td>{{ ++$i }}</td>
-            <td>{{ $schedule->theater->name}}</td>
             <td>{{ $schedule->product->name}}</td>
+            <td>{{ $schedule->theater->name}}</td>
+            <td>{{ $schedule->price}} $</td>
             <td>
             <form action="{{ route('schedules.destroy',$schedule->id) }}" method="POST">
  
@@ -46,5 +47,7 @@
 
     </table>
     
-
+    <div style="position: fixed; bottom: 50;">
+        {!! $schedules->links() !!}
+        </div>
 @endsection
