@@ -39,7 +39,7 @@
                             <li>
                                 @foreach ($schedule->time as $time)
                                     <a
-                                        href="{{ route('seat-index', ['id' => $time->id])}}"><b>{{ Carbon\Carbon::parse($time->time)->format('h:m') }}</b></a>
+                                        href="{{ route('seat-index', ['id' => $time->id])}}"><b>{{ Carbon\Carbon::parse($time->time)->format('h:m a') }}</b></a>
                                 @endforeach
                             </li>
 

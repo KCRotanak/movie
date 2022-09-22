@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Time;
 use App\Models\Showtime;
+use App\Models\Schedule;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ShowtimeController extends Controller
@@ -12,11 +14,12 @@ class ShowtimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $showtimes = Showtime::all();
-        // return view('frontend.showtime', compact('showtimes'));  
-        return view('frontend.showtime');  
+        $tests = Time::get();
+        $schedules = Schedule::get();
+        $products = Product::get();
+        return view('frontend.showtime',compact('tests','schedules','products'));  
     }
 
     /**
@@ -46,9 +49,16 @@ class ShowtimeController extends Controller
      * @param  \App\Models\Showtime  $showtime
      * @return \Illuminate\Http\Response
      */
-    public function show(Showtime $showtime)
+    public function show($id)
     {
-        //
+        $schedules = Schedule::select()
+        ->where('theaterID', $id)
+        ->get();
+        $product = Product::find($id);
+        $times=Time::get();
+        
+        $product = $product;
+        return view('frontend.showtime', compact('product','times','schedules'));
     }
 
     /**

@@ -248,11 +248,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="/admin/home">
-                                    {{ auth()->user()->name }}
-                                </a>
-                            </li>
-                            <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

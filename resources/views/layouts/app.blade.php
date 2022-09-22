@@ -56,13 +56,13 @@
     {{-- --------------- --}}
     <header>
           {{-- loading --}}
-    <div class="loader">
+      <div class="loader">
         <div class="blank"></div>
         <div class="loader-content">
             <img src="https://i.pinimg.com/originals/3d/6a/a9/3d6aa9082f3c9e285df9970dc7b762ac.gif" alt="Loader"
                 class="loader-loader" />
         </div>
-    </div>
+      </div>
         <div class="header-top">
             <div class="bar-top-left">
                 <img src="../img/logo.png"alt="logo" style="cursor: pointer" onclick="window.location.href='/'">
@@ -92,11 +92,6 @@
                             <li>
                                 <a class="dropdown-item" href="/editprofile">
                                     {{ 'Edit account' }}
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/admin/home">
-                                    {{ auth()->user()->name }}
                                 </a>
                             </li>
                             <li>
