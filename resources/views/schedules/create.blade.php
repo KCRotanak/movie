@@ -23,19 +23,9 @@
             </ul>
         </div>
     @endif
-    <div class="container">
-        <div class="card mt-3">
-            
-        </div>
-    </div>
-    
 
-
-    <div class="card" style="width: 40rem;height:">
-
-
-        <div class="row">
-
+    <div class="card"style="width: 35rem; ">
+        <div class="row" style="margin-left:100px">
             <form action="{{ route('schedules.store') }}" method="POST">
                 @csrf
                 <br>
@@ -62,33 +52,32 @@
                 </div>
                 <div class="form-group">
                     <div class="card-body">
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            @if (Session::has('success'))
-                                <div class="alert alert-success text-center">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                    <p>{{ Session::get('success') }}</p>
-                                </div>
-                            @endif
-                            <table class="table table-bordered" id="dynamicAddRemove">
-                                <tr>
-                                    <th>Times</th>
-                                    <th>Action</th>
-                                </tr>
-                                <tr>
-                                    <td><input type="time" name="moreFields[]" 
-                                            class="form-control" /></td>
-                                    <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add
-                                            More</button></td>
-                                </tr>
-                            </table>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if (Session::has('success'))
+                            <div class="alert alert-success text-center">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                <p>{{ Session::get('success') }}</p>
+                            </div>
+                        @endif
+                        <table class="table table-bordered" id="dynamicAddRemove">
+                            <tr>
+                                <th>Times</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <td><input type="time" name="moreFields[]" class="form-control" /></td>
+                                <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add
+                                        More</button></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -98,16 +87,13 @@
         </div>
     </div>
 
-
-
-
-
     <script type="text/javascript">
         var i = 0;
         $("#add-btn").click(function() {
             ++i;
-            $("#dynamicAddRemove").append('<tr><td><input type="time" name="moreFields[]" placeholder="Enter time" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>'
-                );
+            $("#dynamicAddRemove").append(
+                '<tr><td><input type="time" name="moreFields[]" placeholder="Enter time" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>'
+            );
         });
         $(document).on('click', '.remove-tr', function() {
             $(this).parents('tr').remove();

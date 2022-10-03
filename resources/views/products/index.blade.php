@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="float-right">
+            <div class="float-left">
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create movie</a>
             </div>
         </div>

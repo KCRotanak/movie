@@ -7,6 +7,8 @@ use App\Models\Theater;
 use App\Models\User;
 use App\Models\Contact;
 use App\Models\Slide;
+use App\Models\Booking;
+use App\Models\Schedule;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
   
@@ -55,16 +57,15 @@ class HomeController extends Controller
         $theater = Theater::get()->count();
         $user = User::get()->count();
         $contact = Contact::get()->count();
-        return view('adminHome',compact('product','soon','theater','user','contact'));
+        $booking = Booking::get()->count();
+        $dashschedule = Schedule::paginate(5);
+        
+        return view('adminHome',compact('product','soon','theater','user','contact','booking','dashschedule'));
     }
-  
+    
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function managerHome()
-    {
-        return view('managerHome');
-    }
 }

@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Phoenix Admin </title>
-    <link rel="icon" href="{{ asset('img/onlylogo.png') }}" type="image/png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
@@ -17,9 +16,6 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"></script>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -30,6 +26,10 @@
     <!-- End layout styles -->
     {{-- <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" /> --}}
     
+
+    {{-- popup add times  --}}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
     <style>
         .invalid-feedback {
           display: block;
@@ -40,23 +40,20 @@
             max-width: 150px;
         }
     </style>
-    {{-- <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}"> --}}
+    <link rel="icon" href="{{ asset('img/onlylogo.png') }}" type="image/png" />
     <style>
         .form-control::placeholder {
             color: rgb(181, 181, 181);
             opacity: 20;
         }
-
         input[type="date"]::-webkit-calendar-picker-indicator {
             cursor: pointer;
             opacity: 0.6;
             filter: invert(0.8);
         }
-
         input[type="date"]::-webkit-calendar-picker-indicator:hover {
             opacity: 2;
         }
-
         input[type=file]::-webkit-file-upload-button {
             /* chromes and blink button */
             cursor: pointer;

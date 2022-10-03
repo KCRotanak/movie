@@ -7,7 +7,7 @@
             <div class="float-left">
                 <h2>Add Slide</h2>
             </div>
-            <div class="float-right">
+            <div class="float-left">
                 <a class="btn btn-primary" href="{{ route('sliders.index') }}"> Back</a>
             </div>
         </div>

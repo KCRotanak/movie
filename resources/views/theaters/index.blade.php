@@ -26,17 +26,7 @@
             <td>{{ ++$i }}</td>
             <td>{{ $theater->name }}</td>
             <td>
-                <form action="{{ route('theaters.destroy',$theater->id) }}" method="POST">
-     
-                    <a class="btn btn-info" href="{{ route('theaters.show',$theater->id) }}">Show</a>
-      
                     <a class="btn btn-primary" href="{{ route('theaters.edit',$theater->id) }}">Edit</a>
-     
-                    @csrf
-                    @method('DELETE')
-        
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
             </td>
         </tr>
         @endforeach

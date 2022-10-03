@@ -60,4 +60,7 @@ class User extends Authenticatable
             get: fn ($value) =>  ["user", "admin", "manager"][$value],
         );
     }
+    public function bookings(){
+        return $this->hasMany(Booking::class);
+    }
 }

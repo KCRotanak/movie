@@ -38,15 +38,7 @@
                             <input type="text" name="name"
                             value="{{ old('name') ? old('name') : Auth::user()->name }}" class="form__input"
                             required autocomplete="name" autofocus placeholder="Name">
-                            {{-- <input id="email" type="email"
-                                class="form__input @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email"> --}}
 
-                            {{-- @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror --}}
                         </div>
                         <div class="row">
                             <input type="email" name="email"

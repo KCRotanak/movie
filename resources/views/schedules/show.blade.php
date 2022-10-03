@@ -25,6 +25,16 @@
                Theater name:
                 <strong> {{ $schedule->theater->name }}</strong>
             </div>
+            <div class="form-group">
+                Theater name:
+                 <strong> {{ $schedule->theater->name }}</strong>
+             </div>
+             @foreach ($schedule->time as $time)
+             <div class="form-group">
+                Times:
+                 <strong>{{ Carbon\Carbon::parse($time->time)->format('h:m A') }}</strong>
+                @endforeach
+             </div>
         </div>
       </div>
 @endsection

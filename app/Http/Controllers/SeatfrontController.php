@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Booking;
 use App\Models\Schedule;
 use App\Models\Time;
 use App\Models\Product;
@@ -15,12 +17,15 @@ class SeatfrontController extends Controller
      */
     public function index(Request $request)
     {   
+        $time = Time::find($request->id);
+
         $id = $request->id;
 
         $tests = Time::select()
         ->where('id', $id)
         ->get();
-        return view('frontend.seat', compact('tests'));  
+
+        return view('frontend.seat', compact('tests', 'time'));  
     }
 
     /**
@@ -41,7 +46,16 @@ class SeatfrontController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'time_id' => 'required',
+            'seat'=>'required|numeric|gt:0',
+        ]);
+        
+        Booking::create($request->all());
+        
+        return redirect()->route('recieve')
+        ->with('success', 'Booking created successfully.');
     }
 
     /**

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@foreach ($schedules as $schedule)
+@forelse ($schedules as $schedule)
     <div class="showtime-card">
        
         <div class="showtime-image">
@@ -34,6 +34,11 @@
         </div>
 
     </div>   
-    @endforeach
+    @empty
+    <div class="container"style="color: white; overflow: hidden; padding: 150px;   display: flex;
+    justify-content: center;
+    align-items: center;">
+        <img src="../img/noresult.png" alt="">
+    @endforelse
 
 @endsection

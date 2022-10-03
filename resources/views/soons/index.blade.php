@@ -47,6 +47,7 @@
         </div>
     @endif
     
-    {!! $soons->links() !!}
-
+    <div style="position: fixed; bottom: 50;">
+        {!! $soons->links() !!}
+        </div>
 @endsection

@@ -1,7 +1,77 @@
 @extends('layouts.dash')
+@section('content')
 
-    @section('content')
-    <section class="contact-page-section">
+
+    <div class="container-fluid">
+        <div class="row main-content bg-success text-center">
+            <div class="col-md-4 text-center company__info">
+                <span class="company__logo">
+                    <h2><span class="fa fa-android"></span></h2>
+                </span>
+                <img src="{{ asset('img/logo.png') }}" alt="">
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12 login_form">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2>Edit Password</h2>
+                    </div>
+                    <div class="row">
+                        <form control="" class="form-group" action="{{ route('update-password') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                    <input type="password" name="old_password"
+                                     class="form__input"
+                                    placeholder="old_password">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="row">
+                                    <input type="password" name="new_password"
+                                        class="form__input"
+                                        placeholder="new_password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="row">
+                                    <input type="password" name="new_password_confirmation"
+                                        class="form__input"
+                                        placeholder="new password confirmation">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="row">
+                              
+                                <button type="submit" class="btn">
+                                    {{ __('Save Password') }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <p>Wanna Edit Profile? <a href="{{ asset('/editprofile') }}">Edit Profile Here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    {{-- <section class="contact-page-section">
         <div class="container">
             <div class="inner-container"style="border-radius:20px;">
                 <div class="row clearfix p-3 mb-2 bg-warning">
@@ -66,7 +136,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <script>
         function showPassword() {

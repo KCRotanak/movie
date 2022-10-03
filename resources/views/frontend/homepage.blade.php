@@ -45,7 +45,7 @@
                     $rows = $countProduct / 2;
                 @endphp
 
-                @foreach ($products as $product)
+                @forelse ($products as $product)
                     @if ($loop->first || $loop->index === $rows)
                         <div class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
@@ -69,13 +69,21 @@
                             </div>
                         </div>
                     @endif
-                @endforeach
+                    @empty
+                    <div class="container"style="color: white; overflow: hidden; padding: 150px;   display: flex;
+                    justify-content: center;
+                    align-items: center;">
+                        <img src="../img/noresult.png" alt="">
+                    </div>
+                @endforelse
                     <div class="swiper-button-next swiper-navBtn"></div>
                     <div class="swiper-button-prev swiper-navBtn"></div>
                     <div class="swiper-pagination"></div>
             </div>
         </div>
     </div>
+
+
     <!-- /.carousel -->
 
     <script>

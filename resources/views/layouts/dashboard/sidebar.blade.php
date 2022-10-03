@@ -21,9 +21,9 @@
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
                 aria-controls="ui-basic">
                 <span class="menu-icon">
-                    <i class="mdi mdi-theater"></i>
+                    <i class="mdi mdi-table-large"></i>
                 </span>
-                <span class="menu-title">Theater</span>
+                <span class="menu-title">Schedules</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
@@ -32,20 +32,20 @@
                         <a class="nav-link" href="/theaters">Theater</a>
                     </li>
                     <li class="nav-item"> 
-                        <a class="nav-link" href="/seats">Seat</a>
+                        <a class="nav-link" href="/products">Create Movie</a>
                     </li>
                     <li class="nav-item"> 
-                        <a class="nav-link" href="/soons">Comingsoon</a></li>
+                        <a class="nav-link" href="/schedules">Schedule</a></li>
                            
                 </ul>
             </div>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/products">
+            <a class="nav-link" href="/soons">
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
-                <span class="menu-title">Create Movie </span>
+                <span class="menu-title">Coming Soon</span>
 
             </a>
         </li>
@@ -66,11 +66,11 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/schedules">
+            <a class="nav-link" href="/admin/bookings">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
-                <span class="menu-title">Schedule</span>
+                <span class="menu-title">Booking</span>
             </a>
         </li>
         <li class="nav-item menu-items">

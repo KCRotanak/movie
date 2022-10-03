@@ -18,8 +18,9 @@ use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\RecieveController;
 use App\Http\Controllers\TimeController;
-
+use App\Http\Controllers\AdminProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,17 +35,11 @@ use App\Http\Controllers\TimeController;
 // home 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// booking 
-Route::get('/booking', [BookingController::class, 'index']);
-
 // coming soon 
 Route::get('/comingsoon', [SoonfrontController::class, 'index'])->name('comingsoon');
 
 // showtime 
 Route::get('/showtime', [ShowtimeController::class, 'index'])->name('showtime');
-
-// seat 
-Route::get('/seat', [SeatfrontController::class, 'index'])->name('seat-index');
 
 // aboutUs 
 Route::get('/aboutus', function(){
@@ -78,6 +73,13 @@ All Normal Users Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // recieve 
+    Route::get('/recieve',[RecieveController::class,'index'])->name('recieve');
+    // seat 
+    Route::get('/seat', [SeatfrontController::class, 'index'])->name('seat-index');
+    Route::post('/seat', [SeatfrontController::class, 'store'])->name('seat-store');
+    // booking 
+    // Route::get('/booking', [BookingController::class, 'index']);
 });
 
 /*------------------------------------------
@@ -95,4 +97,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('sliders',SlideController::class);
     Route::resource('schedules',ScheduleController::class);
     Route::resource('times', TimeController::class);
+    Route::resource('admin/bookings', BookingController::class);
+    
+    Route::get('admin/adminpassword', [AdminProfileController::class, 'changePassword'])->name('admin-change-password');
+    Route::post('admin/adminpassword', [AdminProfileController::class, 'updatePassword'])->name('admin-update-password');
 });

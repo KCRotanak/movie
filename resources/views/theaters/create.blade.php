@@ -5,7 +5,7 @@
             <div class="pull-left">
                 <h2>Add Theater</h2>
             </div>
-            <div class="pull-right">
+            <div class="float-left">
                 <a class="btn btn-primary" href="{{ route('theaters.index') }}"> Back</a>
             </div>
         </div>
@@ -24,14 +24,14 @@
 
     <form action="{{ route('theaters.store') }}" method="POST">
         @csrf
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row" style="justify-content: center">
+            <div class="col-xs-12 col-sm-12 col-md-7">
                 <div class="form-group">
                     <strong>name:</strong>
                     <input type="text" name="name" class="form-control" placeholder="Theater name">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <div class="col-xs-12 col-sm-12 col-md-7 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>

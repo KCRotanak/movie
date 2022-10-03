@@ -1,24 +1,63 @@
 @extends('layouts.app')
 @section('content')
     <div class="movie-descript">
-        @foreach($tests as $time)
+        @foreach ($tests as $time)
+            <img src="{{ asset('/image/' . $time->schedule->product->image) }}" alt="">
 
-        <img src="{{ asset('/image/' . $time->schedule->product->image) }}" alt="">
-
-        <div class="movie-letter">
-            <p><b>{{$time->schedule->product->name}}</b></p>
-            <i class="bx bxs-calendar"></i>
-            <span>{{$time->schedule->product->date}}</span><br>
-            <i class="bx bxs-time"></i>
-            <span>{{$time->schedule->product->duration}}</span><br>
-            <i class="bx bx-movie-play"></i>
-            <span>{{$time->schedule->product->genre}}</span><br>
-            <i class="bx bxs-megaphone"></i>
-            <span>{{$time->schedule->product->lang}}</span>
-        </div>
+            <div class="movie-letter">
+                <p><b>{{ $time->schedule->product->name }}</b></p>
+                <i class="bx bxs-calendar"></i>
+                <span>{{ $time->schedule->product->date }}</span><br>
+                <i class="bx bxs-time"></i>
+                <span>{{ $time->schedule->product->duration }}</span><br>
+                <i class="bx bx-movie-play"></i>
+                <span>{{ $time->schedule->product->genre }}</span><br>
+                <i class="bx bxs-megaphone"></i>
+                <span>{{ $time->schedule->product->lang }}</span>
+            </div>
         @endforeach
-
     </div>
+    {{-- <div class="center">
+        <form action="{{ route('seat-store') }}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <div class="select">
+                        <strong>Time:</strong><br />
+                        </div>
+                        <select class="form-select form-select-lg mb-3" name="time_id" aria-label=".form-select-lg example">
+                            <option selected value="{{ $time->id }}">{{ $time->time }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <div class="select">
+                        <strong>User:</strong><br />
+                        </div>
+                        <select class="form-select form-select-lg mb-3 " name="user_id" aria-label=".form-select-lg example">
+                            <option selected value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <div class="select">
+                        <strong>Seat:</strong><br />
+                        </div>
+                        <input type="integer" class="seat" name="seat" placeholder="seat">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div> --}}
+
+
+
     <div class="movie-seat">
         <section id="section">
             <div class="container">
@@ -229,7 +268,9 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+     </section>   
         <script>
             const moviesList = [{
                     movieName: "Tom and Jerry 2021",
@@ -267,7 +308,7 @@
                 selectMovieEl.appendChild(optionEl);
             });
 
-            let moviePrice = 7;
+            let moviePrice = 5;
             let currentMovieName = `Tom and Jerry 2021`;
 
             selectMovieEl.addEventListener("input", (e) => {
@@ -442,4 +483,4 @@
                 }
             });
         </script>
-    @endsection
+@endsection

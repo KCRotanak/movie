@@ -16,7 +16,7 @@
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/seat.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/contact.css') }} ">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/loading.css') }} ">
-    <link rel="stylesheet" href=" {{ asset('/css/frontcss/booking.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/recieve.css') }} ">
     {{-- <link rel="stylesheet" href=" {{ asset('/css/frontcss/style.css') }} "> --}}
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -24,15 +24,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     {{-- swiper css --}}
     <link rel="stylesheet" href="{{ asset('/css/frontcss/swiper-bundle.min.css') }} ">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js""></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
     <!-- CSS bootstrap 5.2 only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-        {{-- link icon --}}
+    {{-- link icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -51,17 +51,17 @@
 </head>
 
 <body>
-  
+
     {{-- --------------- --}}
     <header>
-          {{-- loading --}}
-    <div class="loader">
-        <div class="blank"></div>
-        <div class="loader-content">
-            <img src="https://i.pinimg.com/originals/3d/6a/a9/3d6aa9082f3c9e285df9970dc7b762ac.gif" alt="Loader"
-                class="loader-loader" />
+        {{-- loading --}}
+        <div class="loader">
+            <div class="blank"></div>
+            <div class="loader-content">
+                <img src="https://i.pinimg.com/originals/3d/6a/a9/3d6aa9082f3c9e285df9970dc7b762ac.gif" alt="Loader"
+                    class="loader-loader" />
+            </div>
         </div>
-    </div>
         <div class="header-top">
             <div class="bar-top-left">
                 <img src="../img/logo.png"alt="logo" style="cursor: pointer" onclick="window.location.href='/'">
@@ -94,6 +94,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a class="dropdown-item" href="/recieve">
+                                    {{ 'My Tickets' }}
+                                </a>
+                            </li>
+                            <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
@@ -113,13 +118,18 @@
         <div class="header-bottom">
 
             @php
-                $currentRouteName = request()->route()->getName();
+                $currentRouteName = request()
+                    ->route()
+                    ->getName();
             @endphp
 
-            <a href="{{ asset('/') }}" class="{{$currentRouteName === 'home' ? 'active' : ''}} six">Home</a>
-            <a href="{{ asset('/showtime') }}" class="{{$currentRouteName === 'showtime' ? 'active' : ''}} one">Showtime</a>
-            <a href="{{ asset('/comingsoon') }}" class="{{$currentRouteName === 'comingsoon' ? 'active' : ''}} one">Coming Soon</a>
-            <a href="{{ asset('/contact') }}" class="{{$currentRouteName === 'contact.create' ? 'active' : ''}} one">Contact Us</a>
+            <a href="{{ asset('/') }}" class="{{ $currentRouteName === 'home' ? 'active' : '' }} six">Home</a>
+            <a href="{{ asset('/showtime') }}"
+                class="{{ $currentRouteName === 'showtime' ? 'active' : '' }} one">Showtime</a>
+            <a href="{{ asset('/comingsoon') }}"
+                class="{{ $currentRouteName === 'comingsoon' ? 'active' : '' }} one">Coming Soon</a>
+            <a href="{{ asset('/contact') }}"
+                class="{{ $currentRouteName === 'contact.create' ? 'active' : '' }} one">Contact Us</a>
 
         </div>
 
@@ -147,7 +157,7 @@
                 <a href="/comingsoon">Coming Soon</a><br>
                 <a href="/contact">Contact Us</a><br>
                 <a href="/aboutus">About Us</a>
-                
+
             </div>
 
             <div class="top-middle-footer">
@@ -176,25 +186,25 @@
     </footer>
     {{-- nav bar --}}
     <script>
-    $(document).ready(function () {
-  
-        $(".one").click(function (){
-          $(this).addClass("active").siblings().removeClass("active");
+        $(document).ready(function() {
+
+            $(".one").click(function() {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
         });
-      });
-        </script>
-    
+    </script>
+
     {{-- js popup video --}}
     <script>
         $(document).on("click", "#cust_btn", function() {
 
-        function lightbox_open() {
-            var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-            window.scrollTo(0, 0);
-            document.getElementById('light').style.display = 'block';
-            document.getElementById('fade').style.display = 'block';
-            lightBoxVideo.play();
-        }
+            function lightbox_open() {
+                var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+                window.scrollTo(0, 0);
+                document.getElementById('light').style.display = 'block';
+                document.getElementById('fade').style.display = 'block';
+                lightBoxVideo.play();
+            }
 
         })
     </script>

@@ -6,7 +6,7 @@
             <div class="pull-left">
                 <h2>Add ComingsoonMovie</h2>
             </div>
-            <div class="pull-right">
+            <div class="float-left">
                 <a class="btn btn-primary" href="{{ route('soons.index') }}"> Back</a>
             </div>
         </div>
@@ -26,26 +26,26 @@
     <form action="{{ route('soons.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row" style="justify-content: center">
+            <div class="col-xs-12 col-sm-12 col-md-7">
                 <div class="form-group">
                     <strong>Name:</strong>
                     <input type="text" name="name" class="form-control" placeholder="Name">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-7">
                 <div class="form-group">
                     <strong>URL:</strong>
                     <input type="text" name="url" class="form-control" placeholder="url">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-7">
                 <div class="form-group">
                     <strong>Image:</strong>
                     <input type="file" name="image" class="form-control" placeholder="image">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <div class="col-xs-12 col-sm-12 col-md-7 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>

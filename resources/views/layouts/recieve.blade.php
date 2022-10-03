@@ -10,7 +10,7 @@
     <meta name="viewport" content="width-device-width,initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href=" {{ asset('/css/frontcss/booking.css') }} ">
-    <link rel="stylesheet" href=" {{ asset('/css/frontcss/loading.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('/css/frontcss/recieve.css') }} ">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

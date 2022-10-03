@@ -24,8 +24,6 @@ class ProfileController extends Controller
     public function update_profile(Request $request)
     {
         $user = User::all();
-        // $user = User::find($id);
-    
         $request->validate([
             'name' => 'required|min:2|max:100',
             'email' => 'required|min:2|max:100',
@@ -54,16 +52,6 @@ class ProfileController extends Controller
     	}
         return redirect()->route('edit_profile', array('user' => Auth::user()))->with('success', 'Profile successfully updated');
     }
-        // if (File::exists("/profiles/avatars" . $avatar->avatar)) {
-        //     File::delete("/profiles/avatars" . $avatar->avatar);
-        // }
-        // $avatar = $request->file('avatar');
-        // $avatar->avatar = time() . "_" . $avatar->getClientOriginalName();
-        // $avatar->move(\public_path("/profiles/avatars"), $avatar->avatar);
-        // $request['avatar'] = $avatar->avatar;
-        // return view('profiles.edit_profile', array('user' => Auth::user()) );
-
-
         public function changePassword()
         {
             return view('frontend.profiles.edit_password');

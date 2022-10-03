@@ -16,4 +16,8 @@ class Time extends Model
     {
         return $this->belongsTo(Schedule::class, 'scheduleID');
     }
+
+    public function bookings(){
+        return $this->hasMany(Booking::class);
+    }
 }

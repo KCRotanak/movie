@@ -32,11 +32,7 @@
             <td>{{ $schedule->price}} $</td>
             <td>
             <form action="{{ route('schedules.destroy',$schedule->id) }}" method="POST">
- 
                 <a class="btn btn-info" href="{{ route('schedules.show',$schedule->id) }}">Show</a>
-  
-                <a class="btn btn-primary" href="{{ route('schedules.edit',$schedule->id) }}">Edit</a>
- 
                 @csrf
                 @method('DELETE')
     

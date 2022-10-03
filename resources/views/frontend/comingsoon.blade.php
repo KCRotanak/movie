@@ -1,35 +1,24 @@
 @extends('layouts.app')
 @section('content')
     <div id="myCarousel" class="carousel slide carousel-fade" data-interval="2500" data-ride="carousel">
-        
+
 
         <div class="carousel-inner" role="listbox">
-            {{-- <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol> --}}
-            
-            
+
             @foreach ($slideOnes as $slideOne)
-
-            <div class="item active">
-                <div class="fill second-slide">
-                    <img src="{{ asset('../slideimage/' . $slideOne->image) }}" alt="">
+                <div class="item active">
+                    <div class="fill second-slide">
+                        <img src="{{ asset('../slideimage/' . $slideOne->image) }}" alt="">
+                    </div>
                 </div>
-            </div>
-
             @endforeach
 
             @foreach ($slides as $slide)
-
-            <div class="item">
-                <div class="fill second-slide">
-                    <img src="{{ asset('../slideimage/' . $slide->image) }}" alt="">
+                <div class="item">
+                    <div class="fill second-slide">
+                        <img src="{{ asset('../slideimage/' . $slide->image) }}" alt="">
+                    </div>
                 </div>
-            </div>
-
             @endforeach
 
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -58,38 +47,42 @@
                     $rows = $countSoon / 2;
                 @endphp
 
-                @foreach ($soons as $soon)
+                @forelse ($soons as $soon)
                     @if ($loop->first || $loop->index === $rows)
                         <div class="slide-content">
                             <div class="card-wrapper swiper-wrapper">
-                                @endif
-                                <div class="card swiper-slide" onclick="window.location.href='/soondetail/'+{{ $soon->id }}">
-                                    <div class="image-content">
-                                        <div class="card-image">
-                                            <img src="{{ asset('../image/' . $soon->image) }}" alt="" class="card-img">
-                                        </div>
-                                    </div>
-                            
-                                    <div class="card-content">
-
-                                        <h4>{{ $soon->name }}</h4>
-
-                                    </div>
-                                </div>
-
-                                @if ($loop->index === $rows - 1 || $loop->last)
-
+                    @endif
+                    <div class="card swiper-slide" onclick="window.location.href='/soondetail/'+{{ $soon->id }}">
+                        <div class="image-content">
+                            <div class="card-image">
+                                <img src="{{ asset('../image/' . $soon->image) }}" alt="" class="card-img">
                             </div>
                         </div>
-                    @endif
-                @endforeach
-                <div class="swiper-button-next swiper-navBtn"></div>
-                <div class="swiper-button-prev swiper-navBtn"></div>
-                <div class="swiper-pagination"></div>
+
+                        <div class="card-content">
+
+                            <h4>{{ $soon->name }}</h4>
+
+                        </div>
+                    </div>
+
+                    @if ($loop->index === $rows - 1 || $loop->last)
             </div>
         </div>
-     </div>
-  
+        @endif
+        @empty
+        <div class="container"style="color: white; overflow: hidden; padding: 150px;   display: flex;
+        justify-content: center;
+        align-items: center;">
+            <img src="../img/noresult.png" alt="">
+        @endforelse
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    </div>
+    </div>
+
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -134,6 +127,4 @@
     <script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
 
     {{-- video link --}}
-
-
 @endsection

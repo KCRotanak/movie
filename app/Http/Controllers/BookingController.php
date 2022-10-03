@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\Time;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\Cast\Bool_;
 
 class BookingController extends Controller
 {
@@ -13,7 +18,10 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return view('frontend.booking');  
+        $bookings=Booking::paginate(5);
+
+        return view('bookings.index', compact('bookings'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);  
     }
 
     /**
@@ -23,7 +31,10 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        $times=Time::get();
+        $users=User::get();
+
+        return view('bookings.create', compact('times', 'users'));
     }
 
     /**
@@ -34,7 +45,16 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'time_id' => 'required',
+            'seat'=>'required|numeric|gt:0',
+        ]);
+        
+        Booking::create($request->all());
+        
+        return redirect()->route('bookings.index')
+        ->with('success', 'Booking created successfully.');
     }
 
     /**
@@ -43,9 +63,9 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Booking $booking)
     {
-        //
+        return view('bookings.show', compact('booking'));
     }
 
     /**
