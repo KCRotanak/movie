@@ -68,7 +68,7 @@
         }
 
         .container-fluid {
-            margin: 4em auto;
+            margin: 2em auto;
         }
 
         .main-content {
@@ -135,11 +135,13 @@
             border: 0px solid transparent;
             border-radius: 0;
             border-bottom: 1px solid #aaa;
-            padding: 1em 0.5em 0.5em;
-            padding-left: 2em;
+            padding: 0.5em 0.5em 0.5em;
+            padding-left: 0.9em;
             outline: none;
-            margin: 1.5em auto;
+            margin: 0em auto;
             transition: all 0.5s ease;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
 
         .form__input:focus {
@@ -243,11 +245,6 @@
                             <li>
                                 <a class="dropdown-item" href="/editprofile">
                                     {{ 'Edit account' }}
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/admin/home">
-                                    {{ auth()->user()->name }}
                                 </a>
                             </li>
                             <li>

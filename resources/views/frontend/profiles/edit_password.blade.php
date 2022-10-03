@@ -145,7 +145,7 @@
                 x.type = "text";
             } else {
                 x.type = "password";
-              
+
             }
 
             var y = document.getElementById("new_password");
@@ -153,7 +153,7 @@
                 y.type = "text";
             } else {
                 y.type = "password";
-          
+
             }
 
             var z = document.getElementById("new_password_confirmation");
@@ -164,6 +164,7 @@
             }
 
         }
+
         function showPassword(targetID) {
             var x = document.getElementById(targetID);
 
@@ -171,11 +172,9 @@
                 x.type = "text";
             } else {
                 x.type = "password";
-        
+
             }
-        }   
+        }
     </script>
     <!-- END SECTION USER PROFILE -->
 @endsection
-
-

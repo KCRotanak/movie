@@ -1,23 +1,23 @@
 @extends('layouts.dash')
 @section('content')
 <div class="container-fluid">
-    <div class="row main-content bg-success text-center">
+    <div class="row main-content bg-success text-start">
         <div class="col-md-4 text-center company__info">
             <span class="company__logo">
                 <h2><span class="fa fa-android"></span></h2>
             </span>
-            <form action="{{ route('update_profile') }}" method="POST" enctype="multipart/form-data" style="padding: 0 0em !important">
+            <form action="{{ route('update_profile') }}" method="POST" enctype="multipart/form-data" style="padding: 0 5px !important">
                 @csrf
                 @method('PUT')
 
-                <div class="row" style="text-align: start">
+                <div class="row text-start">
                     <div class="profile-image-edit">
                         <div class="form-group">
-                            <strong>Profile Image</strong>
+                            <h5>Profile Image</h5>
 
                             <img src="/profile/avatar/{{ Auth::user()->avatar }}"
-                                alt="avatar"width="300px"style="border-radius:10px;">
-                            <input type="file" name="avatar" class="form-control" placeholder="image" style="margin-top: 10px; font-size: 18px; max-width: 275px">
+                                alt="avatar"width="280px"style="border-radius:10px; margin-top: 5px">
+                            <input type="file" name="avatar" class="form-control" placeholder="image" style="margin-top: 15px; font-size: 14px; max-width: 215px">
 
                         </div>
                     </div>
@@ -27,7 +27,7 @@
         <div class="col-md-8 col-xs-12 col-sm-12 login_form">
             <div class="container-fluid">
                 
-                <div class="row">
+                <div class="row text-center">
                     <h2>Edit Profile</h2>
                 </div>
                 <div class="row">
@@ -35,18 +35,21 @@
                         @csrf --}}
                         @method('PUT')
                         <div class="row">
+                            <strong>Name:</strong>
                             <input type="text" name="name"
                             value="{{ old('name') ? old('name') : Auth::user()->name }}" class="form__input"
                             required autocomplete="name" autofocus placeholder="Name">
 
                         </div>
                         <div class="row">
+                            <strong>Email:</strong>
                             <input type="email" name="email"
                             value="{{ old('email') ? old('email') : Auth::user()->email }}" class="form__input"
                             required autocomplete="email" autofocus placeholder="Email">
 
                         </div>
                         <div class="row">
+                            <strong>Phone:</strong>
                             <input type="text" name="phone"
                             value="{{ old('phone') ? old('phone') : Auth::user()->phone }}" class="form__input"
                             required autocomplete="phone" autofocus placeholder="Phone Number">
@@ -62,7 +65,7 @@
                             @enderror --}}
                         </div>
 
-                        <div class="row justify-content-center align-content-center">
+                        <div class="row justify-content-center">
                           
                             <button type="submit" name="sendmessage" class="btn">Save</button>
                                 {{-- {{ __('Login') }}
@@ -74,7 +77,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     {{-- <a class="btn_edit" href="{{ asset('/editpassword') }}"> Edit Password</a> --}}
                     <p>Do you want to change password? <a href="{{ asset('/editpassword') }}">Change Password Here</a></p>
                 </div>
